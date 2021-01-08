@@ -70,9 +70,9 @@ const AppNavigator = () => {
         component={AddWorkoutScreen}
         options={{
           title: 'Create New Workout',
-          headerStyle: {
-            elevation: 0,
-          },
+          headerTitle: false,
+          headerTransparent: true,
+          headerTintColor: Colors.secondary,
         }}
       />
 

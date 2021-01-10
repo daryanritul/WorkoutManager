@@ -249,9 +249,6 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
     );
   };
 
-  if (!listState.length) {
-    return <LoadingScreen />;
-  }
   return (
     <ScrollView style={styles.container}>
       <View>

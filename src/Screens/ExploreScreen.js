@@ -30,7 +30,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
   const dataFetch = () => {
     database()
       .ref('/publicData/')
-      .on('value', (snapshot) => {
+      .once('value', (snapshot) => {
         if (snapshot.val()) {
           setPublicWorkout(Object.values(snapshot.val()));
           setDataState(Object.values(snapshot.val()).splice(0, 5));
@@ -45,7 +45,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
   useEffect(() => {
     const susbcriber = dataFetch();
     return susbcriber;
-  }, []);
+  });
 
   if (isLoading) {
     return <LoadingScreen />;

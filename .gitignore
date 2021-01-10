@@ -60,5 +60,9 @@ buck-out/
 
 *.keystore
 
+# apk Generated
+
 *.apk
+
+# firebase config json file
 google-services.json

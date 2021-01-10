@@ -27,7 +27,6 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
   const [rest, setRest] = useState('60');
   const [setMode, setSetMode] = useState('Single');
   const [addMode, setAddMode] = useState(false);
-  console.log(data.id);
 
   useLayoutEffect(() => {
     navigation.setOptions({

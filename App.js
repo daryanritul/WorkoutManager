@@ -57,7 +57,15 @@ const App = ({authState, listState, fetchWorkout, setUserWorkoutData}) => {
   }
   return (
     <NavigationContainer>
-      {authState.isAuthenticated ? <AppNavigator /> : <AuthNavigator />}
+      {authState.isAuthenticated ? (
+        listState ? (
+          <AppNavigator />
+        ) : (
+          <LoadingScreen />
+        )
+      ) : (
+        <AuthNavigator />
+      )}
     </NavigationContainer>
   );
 };

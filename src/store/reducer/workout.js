@@ -13,7 +13,7 @@ import {
   WORKOUT_UPLOADED,
 } from '../actions/actions.types';
 
-const initialState = [];
+const initialState = null;
 
 export default (state = initialState, action) => {
   switch (action.type) {

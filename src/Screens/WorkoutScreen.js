@@ -227,25 +227,23 @@ const WorkoutScreen = ({
       <View
         style={{
           flex: 1,
-          marginHorizontal: 6,
+          margin: 5,
         }}>
         {workout ? (
-          <View>
-            <FlatList
-              data={workout}
-              numColumns={3}
-              keyExtractor={(item) => item.id}
-              renderItem={({item, index}) => (
-                <DaysRoutine
-                  day={index + 1}
-                  data={item}
-                  routineHandler={routineHandler}
-                  disable={editMode}
-                  daysType={data.daysType === 'Days' ? true : false}
-                />
-              )}
-            />
-          </View>
+          <FlatList
+            data={workout}
+            numColumns={3}
+            keyExtractor={(item) => item.id}
+            renderItem={({item, index}) => (
+              <DaysRoutine
+                day={index + 1}
+                data={item}
+                routineHandler={routineHandler}
+                disable={editMode}
+                daysType={data.daysType === 'Days' ? true : false}
+              />
+            )}
+          />
         ) : (
           <View
             style={{
@@ -377,7 +375,7 @@ const WorkoutScreen = ({
       )}
 
       <Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modal}
         onRequestClose={() => {
@@ -395,7 +393,7 @@ const WorkoutScreen = ({
               width: '70%',
               backgroundColor: Colors.secondary,
               padding: 20,
-              borderRadius: 10,
+              borderRadius: 5,
               elevation: 5,
               paddingTop: 8,
             }}>

@@ -29,30 +29,34 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
   return (
     <View
       style={{
-        width: '31%',
         backgroundColor: data.name === 'REST' ? '#fff' : '#F2F2F2',
         margin: 4,
-        //     borderWidth: 0.5,
-        height: 150,
-        elevation: 2,
+        elevation: 3,
+        width: '32%',
+        height: 160,
       }}>
       <TouchableOpacity
         activeOpacity={0.6}
         disabled={disable}
+        style={{
+          height: '100%',
+          width: '100%',
+        }}
         onPress={() => routineHandler(data, day)}>
         {daysType ? (
           <View
             style={{
+              height: '18%',
               flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              paddingHorizontal: 10,
+
               backgroundColor: Colors.primary,
             }}>
             <Text
               style={{
                 fontSize: 14,
-                width: '50%',
-                backgroundColor: Colors.primary,
-                textAlign: 'center',
-                paddingVertical: 5,
                 color: '#fff',
               }}>
               WEEK {Math.trunc((day - 1) / 7 + 1)}
@@ -60,49 +64,41 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             <Text
               style={{
                 fontSize: 14,
-                width: '50%',
-                backgroundColor: Colors.primary,
-                textAlign: 'center',
-                paddingVertical: 5,
                 color: '#fff',
               }}>
               DAY {day}
             </Text>
           </View>
         ) : (
-          <Text
+          <View
             style={{
-              fontSize: 14,
-              width: '100%',
+              height: '18%',
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingHorizontal: 10,
               backgroundColor: Colors.primary,
-              textAlign: 'center',
-              paddingVertical: 5,
-              color: '#fff',
             }}>
-            {weekDays[d]}
-          </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: '#fff',
+              }}>
+              {weekDays[d]}
+            </Text>
+          </View>
         )}
-
-        {/* <Text
-          style={{
-            fontSize: 14,
-            backgroundColor: Colors.primary,
-            textAlign: 'center',
-            paddingVertical: 5,
-            color: '#fff',
-          }}>
-          WEEK {Math.trunc((day - 1) / 7 + 1)} | DAY {day}
-        </Text> */}
         <View
           style={{
-            paddingBottom: 5,
+            flex: 1,
           }}>
           <Text
             style={{
-              fontSize: 15,
-              paddingHorizontal: 10,
-              paddingVertical: 5,
+              height: '30%',
+              fontSize: 13,
+              paddingHorizontal: 5,
+              paddingVertical: 2,
               fontWeight: 'bold',
+              textAlign: 'center',
             }}>
             {data.name}
           </Text>
@@ -120,9 +116,11 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             <Icon
               name={'checkmark-circle'}
               style={{
-                fontSize: 45,
+                fontSize: 40,
+                height: '53%',
                 textAlign: 'center',
-                paddingVertical: 10,
+                textAlignVertical: 'center',
+
                 color: data.routineStatus ? '#29B966' : '#FFF',
               }}
             />
@@ -131,7 +129,8 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             <Text
               note
               style={{
-                textAlignVertical: 'bottom',
+                height: '17%',
+                textAlignVertical: 'center',
                 textAlign: 'center',
               }}>
               {data.exerciseData ? `${data.exerciseData.length} Exercises` : ''}

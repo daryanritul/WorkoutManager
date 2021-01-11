@@ -124,9 +124,11 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
+    fontSize: 14,
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
+    fontSize: 14,
   },
 });

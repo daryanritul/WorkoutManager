@@ -3,6 +3,7 @@ import {FlatList, ImageBackground, StyleSheet, Image, View} from 'react-native';
 
 import {Text, Icon, Button, Form, Item, Input, Label} from 'native-base';
 import {Colors} from '../Constants/Color';
+import {textSize} from '../Constants/Utility';
 
 const WelcomeScreen = ({navigation}) => {
   return (
@@ -56,14 +57,16 @@ const styles = StyleSheet.create({
   authText: {
     flex: 1,
     color: Colors.primary,
+    fontFamily: 'OpenSans-Bold',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 17,
+    fontSize: textSize.btn,
   },
   btnText: {
     color: Colors.secondary,
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: textSize.tiny,
+    fontFamily: 'OpenSans-Regular',
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -74,10 +77,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginVertical: 5,
     backgroundColor: 'rgba(255,255,255,0.8)',
-  },
-  labelStyle: {
-    color: Colors.primary,
-    fontWeight: 'bold',
   },
   inputStyle: {
     color: Colors.primary,

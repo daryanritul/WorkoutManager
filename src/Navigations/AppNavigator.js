@@ -17,6 +17,7 @@ import AddExerciseScreen from '../Screens/AddExerciseScreen';
 import PublicWorkoutScreen from '../Screens/PublicWorkoutScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import FitnessStatics from '../Screens/FitnessStatics';
+import {textSize} from '../Constants/Utility';
 
 const TopTabs = createMaterialTopTabNavigator();
 const MainStack = createStackNavigator();
@@ -36,6 +37,7 @@ const AppNavigator = () => {
           headerTitleStyle: {
             fontWeight: 'bold',
             color: Colors.primary,
+            fontSize: 15,
           },
           headerTitleAlign: 'center',
           headerRight: () => (
@@ -46,6 +48,7 @@ const AppNavigator = () => {
                 style={{
                   color: Colors.primary,
                   marginHorizontal: 10,
+                  fontSize: textSize.icon,
                 }}
               />
             </TouchableOpacity>
@@ -58,7 +61,7 @@ const AppNavigator = () => {
                 style={{
                   color: Colors.primary,
                   marginHorizontal: 10,
-                  fontSize: 25,
+                  fontSize: textSize.icon,
                 }}
               />
             </TouchableOpacity>
@@ -69,7 +72,6 @@ const AppNavigator = () => {
         name="AddWorkoutScreen"
         component={AddWorkoutScreen}
         options={{
-          title: 'Create New Workout',
           headerTitle: false,
           headerTransparent: true,
           headerTintColor: Colors.secondary,
@@ -90,9 +92,6 @@ const AppNavigator = () => {
         name="RoutineScreen"
         component={RoutineScreen}
         options={({route}) => ({
-          title: `DAY ${
-            route.params.day
-          } - ${route.params.data.name.toUpperCase()}`,
           headerTitleAlign: 'center',
           headerTitle: false,
           headerTransparent: true,
@@ -106,7 +105,8 @@ const AppNavigator = () => {
         name="AddExerciseScreen"
         component={AddExerciseScreen}
         options={({route}) => ({
-          title: '',
+          headerTitle: false,
+
           headerStyle: {
             elevation: 0,
           },
@@ -117,7 +117,6 @@ const AppNavigator = () => {
         name="PublicWorkoutScreen"
         component={PublicWorkoutScreen}
         options={({route}) => ({
-          title: '',
           headerTitle: false,
           headerTransparent: true,
           headerTintColor: Colors.secondary,
@@ -127,7 +126,6 @@ const AppNavigator = () => {
         name="ProfileScreen"
         component={ProfileScreen}
         options={({route}) => ({
-          title: '',
           headerTitle: false,
           headerTransparent: true,
           headerTintColor: Colors.secondary,
@@ -137,7 +135,6 @@ const AppNavigator = () => {
         name="FitnessStatics"
         component={FitnessStatics}
         options={({route}) => ({
-          title: '',
           headerTitle: false,
           headerTransparent: true,
           headerTintColor: Colors.secondary,
@@ -158,7 +155,7 @@ const TopTabsNavigator = () => {
         },
         labelStyle: {
           fontWeight: 'bold',
-          fontSize: 15,
+          fontSize: 11,
         },
         indicatorStyle: {
           backgroundColor: Colors.primary,
@@ -173,10 +170,6 @@ const TopTabsNavigator = () => {
           headerStyle: {
             backgroundColor: Colors.secondary,
           },
-          headerTitleStyle: {
-            color: Colors.primary,
-            fontWeight: 'bold',
-          },
         }}
       />
       <TopTabs.Screen
@@ -185,11 +178,6 @@ const TopTabsNavigator = () => {
         options={{
           title: 'HOME',
           headerTitleAlign: 'center',
-          headerTitleStyle: {
-            color: Colors.primary,
-            fontWeight: 'bold',
-            fontSize: 20,
-          },
         }}
       />
       <TopTabs.Screen
@@ -198,10 +186,6 @@ const TopTabsNavigator = () => {
         options={{
           title: 'EXPLORE',
           headerTitleAlign: 'center',
-          headerTitleStyle: {
-            color: Colors.primary,
-            fontWeight: 'bold',
-          },
         }}
       />
     </TopTabs.Navigator>

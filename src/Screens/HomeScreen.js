@@ -14,7 +14,6 @@ import {connect} from 'react-redux';
 
 import {imageArray} from '../Constants/Utility';
 import {setUserWorkoutData} from '../store/actions/workout';
-import LoadingScreen from './LoadingScreen';
 
 const HomeScreen = ({navigation, listState, route, publicState}) => {
   const muscle = [

@@ -12,7 +12,7 @@ import {Colors} from '../Constants/Color';
 
 import {connect} from 'react-redux';
 
-import {imageArray} from '../Constants/Utility';
+import {imageArray, textSize} from '../Constants/Utility';
 import {setUserWorkoutData} from '../store/actions/workout';
 
 const HomeScreen = ({navigation, listState, route, publicState}) => {
@@ -66,14 +66,14 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <ImageBackground
         source={imageUrl}
         style={{
-          width: 350,
-          height: 145,
+          width: 300,
+          height: 115,
           margin: 5,
         }}>
         <TouchableOpacity
           style={{
             flex: 1,
-            backgroundColor: Colors.primaryOpacity,
+            backgroundColor: 'rgba(0,0,0,0.6)',
           }}
           onPress={() => {
             if (todaysRoutine) {
@@ -96,7 +96,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
             }}>
             <Text
               style={{
-                fontSize: 18,
+                fontSize: 12,
                 fontWeight: 'bold',
                 paddingHorizontal: 10,
                 textAlign: 'center',
@@ -108,7 +108,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
             {!todaysRoutine && (
               <Text
                 style={{
-                  fontSize: 16,
+                  fontSize: 14,
                   paddingHorizontal: 10,
                   paddingVertical: 5,
                   fontWeight: 'bold',
@@ -128,7 +128,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               }}>
               <Text
                 style={{
-                  fontSize: 20,
+                  fontSize: 14,
                   paddingHorizontal: 10,
                   paddingVertical: 5,
                   fontWeight: 'bold',
@@ -149,13 +149,12 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 flex: 1,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                marginHorizontal: 5,
               }}>
               <Text
                 style={{
-                  fontSize: 16,
+                  fontSize: 12,
                   paddingHorizontal: 10,
-                  paddingVertical: 5,
+                  paddingVertical: 2,
                   fontWeight: 'bold',
                   textAlignVertical: 'center',
                   color: Colors.secondary,
@@ -165,9 +164,9 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               {todaysRoutine.exerciseData && (
                 <Text
                   style={{
-                    fontSize: 16,
+                    fontSize: 12,
                     paddingHorizontal: 10,
-                    paddingVertical: 5,
+                    paddingVertical: 2,
                     fontWeight: 'bold',
                     textAlignVertical: 'center',
                     color: Colors.secondary,
@@ -192,7 +191,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
           style={{
             color: Colors.secondary,
             fontWeight: 'bold',
-            fontSize: 40,
+            fontSize: 25,
             textAlign: 'center',
           }}>
           {number}
@@ -201,7 +200,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
           style={{
             textAlign: 'center',
             color: Colors.secondary,
-            fontSize: 15,
+            fontSize: 11,
           }}>
           {title}
         </Text>
@@ -216,7 +215,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
         source={imageUrl}
         style={{
           marginVertical: 2.5,
-          height: 55,
+          height: 45,
         }}>
         <TouchableOpacity
           onPress={() =>
@@ -237,7 +236,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
           <Text
             style={{
               color: Colors.secondary,
-              fontSize: 16,
+              fontSize: 13,
               padding: 10,
               fontWeight: 'bold',
             }}>
@@ -253,7 +252,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: textSize.label,
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -278,7 +277,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               s
               style={{
                 width: '100%',
-                height: 145,
+                height: 115,
               }}>
               <TouchableOpacity
                 style={{
@@ -289,7 +288,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 onPress={() => navigation.jumpTo('MyWorkoutsScreen')}>
                 <Text
                   style={{
-                    fontSize: 18,
+                    fontSize: 14,
                     fontWeight: 'bold',
                     paddingHorizontal: 10,
                     textAlign: 'center',
@@ -300,7 +299,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 </Text>
                 <Text
                   style={{
-                    fontSize: 15,
+                    fontSize: 12,
                     fontWeight: 'bold',
                     paddingHorizontal: 10,
                     textAlign: 'center',
@@ -316,11 +315,11 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       </View>
       <View
         style={{
-          height: 160,
+          height: 125,
         }}>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: textSize.label,
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -334,24 +333,23 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
             flexDirection: 'row',
             backgroundColor: Colors.primary,
             alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: 30,
+            justifyContent: 'space-evenly',
           }}>
-          <WorkoutStatus title="Total Workouts" number={listState.length} />
+          <WorkoutStatus title={'Total\nWorkouts'} number={listState.length} />
           <WorkoutStatus
-            title="Active Workouts"
+            title={'Active\nWorkouts'}
             number={
               listState.filter(
                 (value) => value.workoutStatus.activeStatus === true,
               ).length
             }
           />
-          <WorkoutStatus title="Workout Completed" number={completed()} />
+          <WorkoutStatus title={'Workout\nCompleted'} number={completed()} />
         </View>
       </View>
       <Text
         style={{
-          fontSize: 15,
+          fontSize: textSize.label,
           fontWeight: 'bold',
           paddingHorizontal: 5,
           paddingVertical: 5,
@@ -394,7 +392,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: 16,
+                  fontSize: 12,
                 }}>
                 BEGINNER
               </Text>
@@ -430,7 +428,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: 16,
+                  fontSize: 12,
                 }}>
                 INTERMEDIATE
               </Text>
@@ -467,7 +465,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: 16,
+                  fontSize: 12,
                 }}>
                 ADVANCED
               </Text>
@@ -478,7 +476,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: textSize.label,
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 5,

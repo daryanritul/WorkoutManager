@@ -6,6 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {
+  responsiveFontSize,
+  responsiveHeight,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
 
 import {Colors} from '../Constants/Color';
 import {imageArray} from '../Constants/Utility';
@@ -15,15 +20,14 @@ const ExploreCard = ({item, navigation, routeName}) => {
   return (
     <View
       style={{
-        //  marginHorizontal: 5,
         marginVertical: 2.5,
       }}>
       <ImageBackground
         source={imageUrl}
         style={{
           flex: 1,
-          width: '100%',
-          height: 160,
+          width: responsiveWidth(100),
+          height: responsiveHeight(18),
         }}
         imageStyle={{}}>
         <View
@@ -82,21 +86,21 @@ const styles = StyleSheet.create({
     color: Colors.secondary,
     fontWeight: 'bold',
     textAlign: 'center',
-    padding: 5,
-    fontSize: 20,
+    padding: 3,
+    fontSize: responsiveFontSize(2.1),
   },
   bodyHead: {
     color: Colors.secondary,
     fontWeight: 'bold',
     textAlign: 'center',
-    padding: 5,
-    fontSize: 14,
+    padding: 3,
+    fontSize: responsiveFontSize(1.5),
   },
   bodyFoot: {
     color: Colors.secondary,
     fontWeight: 'bold',
-    padding: 5,
+    padding: 3,
     paddingHorizontal: 10,
-    fontSize: 12,
+    fontSize: responsiveFontSize(1.5),
   },
 });

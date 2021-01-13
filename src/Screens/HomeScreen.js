@@ -15,6 +15,12 @@ import {connect} from 'react-redux';
 import {imageArray} from '../Constants/Utility';
 import {setUserWorkoutData} from '../store/actions/workout';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const HomeScreen = ({navigation, listState, route, publicState}) => {
   const muscle = [
     'FULL BODY',
@@ -66,8 +72,8 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <ImageBackground
         source={imageUrl}
         style={{
-          width: 300,
-          height: 115,
+          width: responsiveWidth(80),
+          height: responsiveHeight(18),
           margin: 5,
         }}>
         <TouchableOpacity
@@ -92,11 +98,11 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
           <View
             style={{
               flex: 1,
-              justifyContent: 'center',
+              justifyContent: 'flex-start',
             }}>
             <Text
               style={{
-                fontSize: 12,
+                fontSize: responsiveFontSize(1.5),
                 fontWeight: 'bold',
                 paddingHorizontal: 10,
                 textAlign: 'center',
@@ -108,7 +114,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
             {!todaysRoutine && (
               <Text
                 style={{
-                  fontSize: 14,
+                  fontSize: responsiveFontSize(2.1),
                   paddingHorizontal: 10,
                   paddingVertical: 5,
                   fontWeight: 'bold',
@@ -124,11 +130,12 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               style={{
                 flex: 1,
                 justifyContent: 'center',
-                borderColor: Colors.secondary,
+                alignItems: 'center',
               }}>
               <Text
                 style={{
-                  fontSize: 14,
+                  fontSize: responsiveFontSize(1.8),
+
                   paddingHorizontal: 10,
                   paddingVertical: 5,
                   fontWeight: 'bold',
@@ -149,12 +156,12 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 flex: 1,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
+                alignItems: 'flex-end',
               }}>
               <Text
                 style={{
-                  fontSize: 12,
-                  paddingHorizontal: 10,
-                  paddingVertical: 2,
+                  fontSize: responsiveFontSize(1.5),
+                  padding: 5,
                   fontWeight: 'bold',
                   textAlignVertical: 'center',
                   color: Colors.secondary,
@@ -164,9 +171,8 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               {todaysRoutine.exerciseData && (
                 <Text
                   style={{
-                    fontSize: 12,
-                    paddingHorizontal: 10,
-                    paddingVertical: 2,
+                    fontSize: responsiveFontSize(1.5),
+                    padding: 5,
                     fontWeight: 'bold',
                     textAlignVertical: 'center',
                     color: Colors.secondary,
@@ -185,13 +191,13 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
     return (
       <View
         style={{
-          width: '24%',
+          width: responsiveWidth(30),
         }}>
         <Text
           style={{
             color: Colors.secondary,
             fontWeight: 'bold',
-            fontSize: 25,
+            fontSize: responsiveFontSize(3.5),
             textAlign: 'center',
           }}>
           {number}
@@ -200,7 +206,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
           style={{
             textAlign: 'center',
             color: Colors.secondary,
-            fontSize: 11,
+            fontSize: responsiveFontSize(1.5),
           }}>
           {title}
         </Text>
@@ -215,7 +221,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
         source={imageUrl}
         style={{
           marginVertical: 2.5,
-          height: 45,
+          height: responsiveHeight(7.5),
         }}>
         <TouchableOpacity
           onPress={() =>
@@ -230,13 +236,13 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
             flex: 1,
             backgroundColor: 'rgba(0,0,0,0.7)',
             justifyContent: 'center',
-            paddingHorizontal: 16,
+            paddingHorizontal: 10,
             alignItems: index % 2 === 0 ? 'flex-start' : 'flex-end',
           }}>
           <Text
             style={{
               color: Colors.secondary,
-              fontSize: 13,
+              fontSize: responsiveFontSize(1.8),
               padding: 10,
               fontWeight: 'bold',
             }}>
@@ -252,7 +258,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: 12,
+            fontSize: responsiveFontSize(1.5),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -276,8 +282,8 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               source={require('../Assets/Images/Image.jpg')}
               s
               style={{
-                width: '100%',
-                height: 115,
+                width: responsiveWidth(100),
+                height: responsiveHeight(18),
               }}>
               <TouchableOpacity
                 style={{
@@ -288,7 +294,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 onPress={() => navigation.jumpTo('MyWorkoutsScreen')}>
                 <Text
                   style={{
-                    fontSize: 14,
+                    fontSize: responsiveFontSize(2.1),
                     fontWeight: 'bold',
                     paddingHorizontal: 10,
                     textAlign: 'center',
@@ -299,7 +305,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 </Text>
                 <Text
                   style={{
-                    fontSize: 12,
+                    fontSize: responsiveFontSize(1.5),
                     fontWeight: 'bold',
                     paddingHorizontal: 10,
                     textAlign: 'center',
@@ -315,11 +321,12 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       </View>
       <View
         style={{
-          height: 125,
+          height: responsiveHeight(18),
+          width: responsiveWidth(100),
         }}>
         <Text
           style={{
-            fontSize: 12,
+            fontSize: responsiveFontSize(1.5),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -349,7 +356,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       </View>
       <Text
         style={{
-          fontSize: 12,
+          fontSize: responsiveFontSize(1.5),
           fontWeight: 'bold',
           paddingHorizontal: 5,
           paddingVertical: 5,
@@ -360,19 +367,18 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View
         style={{
           flexDirection: 'row',
-          marginVertical: 0,
+          justifyContent: 'space-between',
         }}>
         <View
           style={{
-            width: '33.33%',
+            width: responsiveWidth(33),
             paddingHorizontal: 1.5,
             paddingLeft: 0,
           }}>
           <ImageBackground
             source={require('../Assets/Images/Image15.jpg')}
             style={{
-              width: '100%',
-              height: 50,
+              height: responsiveWidth(15),
             }}>
             <TouchableOpacity
               onPress={() =>
@@ -392,7 +398,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: 12,
+                  fontSize: responsiveFontSize(1.5),
                 }}>
                 BEGINNER
               </Text>
@@ -401,14 +407,14 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
         </View>
         <View
           style={{
-            width: '33.33%',
+            width: responsiveWidth(33),
             paddingHorizontal: 1.5,
+            paddingLeft: 0,
           }}>
           <ImageBackground
             source={require('../Assets/Images/Image15.jpg')}
             style={{
-              width: '100%',
-              height: 50,
+              height: responsiveWidth(15),
             }}>
             <TouchableOpacity
               onPress={() =>
@@ -428,7 +434,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: 12,
+                  fontSize: responsiveFontSize(1.5),
                 }}>
                 INTERMEDIATE
               </Text>
@@ -437,15 +443,14 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
         </View>
         <View
           style={{
-            width: '33.33%',
+            width: responsiveWidth(33),
             paddingHorizontal: 1.5,
-            paddingRight: 0,
+            paddingLeft: 0,
           }}>
           <ImageBackground
             source={require('../Assets/Images/Image15.jpg')}
             style={{
-              width: '100%',
-              height: 50,
+              height: responsiveWidth(15),
             }}>
             <TouchableOpacity
               onPress={() =>
@@ -465,7 +470,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: 12,
+                  fontSize: responsiveFontSize(1.5),
                 }}>
                 ADVANCED
               </Text>
@@ -476,7 +481,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: 12,
+            fontSize: responsiveFontSize(1.5),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 5,
@@ -487,7 +492,6 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
         <View
           style={{
             flex: 1,
-            width: '100%',
           }}>
           {muscle.map((item, index) => (
             <View key={index} style={{}}>

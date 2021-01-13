@@ -12,7 +12,7 @@ import {Text, Icon, Button, Form, Item, Input, Label} from 'native-base';
 import {Colors} from '../Constants/Color';
 import {connect} from 'react-redux';
 import {signInUser} from '../store/actions/auth';
-import {textSize, toastMessage} from '../Constants/Utility';
+import {toastMessage} from '../Constants/Utility';
 const SignInScreen = ({signInUser}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: textSize.btn,
+    fontSize: 14,
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -123,11 +123,11 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: 12,
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: 12,
   },
 });

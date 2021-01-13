@@ -16,7 +16,7 @@ import {connect} from 'react-redux';
 import {signUpUser} from '../store/actions/auth';
 
 import propTypes from 'prop-types';
-import {textSize, toastMessage} from '../Constants/Utility';
+import {toastMessage} from '../Constants/Utility';
 
 const SignUpScreen = ({signUpUser}) => {
   const [name, setName] = useState('');
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: textSize.btn,
+    fontSize: 14,
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -261,12 +261,12 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: 12,
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: 12,
   },
   genderBox: {
     backgroundColor: 'rgba(255,255,255,0.7)',

@@ -17,7 +17,6 @@ import AddExerciseScreen from '../Screens/AddExerciseScreen';
 import PublicWorkoutScreen from '../Screens/PublicWorkoutScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import FitnessStatics from '../Screens/FitnessStatics';
-import {textSize} from '../Constants/Utility';
 
 const TopTabs = createMaterialTopTabNavigator();
 const MainStack = createStackNavigator();
@@ -48,7 +47,7 @@ const AppNavigator = () => {
                 style={{
                   color: Colors.primary,
                   marginHorizontal: 10,
-                  fontSize: textSize.icon,
+                  fontSize: 23,
                 }}
               />
             </TouchableOpacity>
@@ -61,7 +60,7 @@ const AppNavigator = () => {
                 style={{
                   color: Colors.primary,
                   marginHorizontal: 10,
-                  fontSize: textSize.icon,
+                  fontSize: 23,
                 }}
               />
             </TouchableOpacity>

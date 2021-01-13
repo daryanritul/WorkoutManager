@@ -12,7 +12,7 @@ import {Colors} from '../Constants/Color';
 
 import {connect} from 'react-redux';
 
-import {imageArray, textSize} from '../Constants/Utility';
+import {imageArray} from '../Constants/Utility';
 import {setUserWorkoutData} from '../store/actions/workout';
 
 const HomeScreen = ({navigation, listState, route, publicState}) => {
@@ -252,7 +252,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: textSize.label,
+            fontSize: 12,
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -319,7 +319,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
         }}>
         <Text
           style={{
-            fontSize: textSize.label,
+            fontSize: 12,
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -349,7 +349,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       </View>
       <Text
         style={{
-          fontSize: textSize.label,
+          fontSize: 12,
           fontWeight: 'bold',
           paddingHorizontal: 5,
           paddingVertical: 5,
@@ -476,7 +476,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: textSize.label,
+            fontSize: 12,
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 5,

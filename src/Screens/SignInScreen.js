@@ -5,13 +5,14 @@ import {
   View,
   ActivityIndicator,
   Keyboard,
+  ScrollView,
 } from 'react-native';
 
 import {Text, Icon, Button, Form, Item, Input, Label} from 'native-base';
 import {Colors} from '../Constants/Color';
 import {connect} from 'react-redux';
 import {signInUser} from '../store/actions/auth';
-import {toastMessage} from '../Constants/Utility';
+import {textSize, toastMessage} from '../Constants/Utility';
 const SignInScreen = ({signInUser}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +23,10 @@ const SignInScreen = ({signInUser}) => {
       source={require('../Assets/Images/AuthImage.jpg')}
       style={{flex: 1}}>
       <View style={{flex: 1, backgroundColor: 'rgba(0,0,0,0.7)'}}>
-        <View style={{flex: 1}}>
+        <ScrollView
+          contentContainerStyle={{
+            flex: 1,
+          }}>
           <View
             style={{
               flex: 4,
@@ -79,7 +83,7 @@ const SignInScreen = ({signInUser}) => {
               </Button>
             </View>
           </View>
-        </View>
+        </ScrollView>
       </View>
     </ImageBackground>
   );
@@ -104,12 +108,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 17,
-  },
-  btnText: {
-    color: Colors.secondary,
-    textAlign: 'center',
-    fontSize: 12,
+    fontSize: textSize.btn,
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -124,11 +123,11 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: textSize.label,
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: textSize.label,
   },
 });

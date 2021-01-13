@@ -13,6 +13,13 @@ import {Colors} from '../Constants/Color';
 import {connect} from 'react-redux';
 import {signInUser} from '../store/actions/auth';
 import {toastMessage} from '../Constants/Utility';
+
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const SignInScreen = ({signInUser}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -98,7 +105,7 @@ export default connect(null, mapDispatchToProps)(SignInScreen);
 const styles = StyleSheet.create({
   authButton: {
     backgroundColor: 'rgba(255,255,255,0.7)',
-    width: '60%',
+    width: responsiveWidth(60),
     margin: 5,
     alignSelf: 'center',
     justifyContent: 'center',
@@ -108,7 +115,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: responsiveFontSize(2.1),
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -123,11 +130,11 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: 12,
+    fontSize: responsiveFontSize(1.5),
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: 12,
+    fontSize: responsiveFontSize(1.5),
   },
 });

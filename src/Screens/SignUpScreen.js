@@ -18,6 +18,12 @@ import {signUpUser} from '../store/actions/auth';
 import propTypes from 'prop-types';
 import {toastMessage} from '../Constants/Utility';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const SignUpScreen = ({signUpUser}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -45,7 +51,6 @@ const SignUpScreen = ({signUpUser}) => {
     setLoading(!loading);
     Keyboard.dismiss();
   };
-  console.log(next);
 
   return (
     <ImageBackground
@@ -235,7 +240,7 @@ export default connect(null, mapDispatchToProps)(SignUpScreen);
 const styles = StyleSheet.create({
   authButton: {
     backgroundColor: 'rgba(255,255,255,0.7)',
-    width: '40%',
+    width: responsiveWidth(40),
     margin: 5,
     alignSelf: 'center',
     justifyContent: 'center',
@@ -245,7 +250,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: responsiveFontSize(2.1),
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -253,7 +258,7 @@ const styles = StyleSheet.create({
     borderStartWidth: 2,
     borderBottomWidth: 2,
     borderColor: Colors.primary,
-    height: 65,
+    height: responsiveHeight(8),
     borderRadius: 5,
     marginVertical: 5,
     backgroundColor: 'rgba(255,255,255,0.8)',
@@ -261,17 +266,18 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: 12,
+    fontSize: responsiveFontSize(1.5),
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: 12,
+    fontSize: responsiveFontSize(1.5),
   },
   genderBox: {
     backgroundColor: 'rgba(255,255,255,0.7)',
-    height: 65,
-    width: '45%',
+    height: responsiveHeight(8),
+
+    width: responsiveWidth(38),
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: Colors.primary,
@@ -280,7 +286,6 @@ const styles = StyleSheet.create({
   },
   genderIcon: {
     color: Colors.primary,
-    // backgroundColor: Colors.secondaryOpacity,
-    fontSize: 40,
+    fontSize: responsiveFontSize(5),
   },
 });

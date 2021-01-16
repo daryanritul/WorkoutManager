@@ -17,10 +17,15 @@ import AddExerciseScreen from '../Screens/AddExerciseScreen';
 import PublicWorkoutScreen from '../Screens/PublicWorkoutScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import FitnessStatics from '../Screens/FitnessStatics';
-import {textSize} from '../Constants/Utility';
 
 const TopTabs = createMaterialTopTabNavigator();
 const MainStack = createStackNavigator();
+
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
 
 const AppNavigator = () => {
   return (
@@ -37,7 +42,7 @@ const AppNavigator = () => {
           headerTitleStyle: {
             fontWeight: 'bold',
             color: Colors.primary,
-            fontSize: 15,
+            fontSize: responsiveFontSize(2.1),
           },
           headerTitleAlign: 'center',
           headerRight: () => (
@@ -48,7 +53,7 @@ const AppNavigator = () => {
                 style={{
                   color: Colors.primary,
                   marginHorizontal: 10,
-                  fontSize: textSize.icon,
+                  fontSize: responsiveFontSize(3),
                 }}
               />
             </TouchableOpacity>
@@ -61,7 +66,7 @@ const AppNavigator = () => {
                 style={{
                   color: Colors.primary,
                   marginHorizontal: 10,
-                  fontSize: textSize.icon,
+                  fontSize: responsiveFontSize(3),
                 }}
               />
             </TouchableOpacity>
@@ -155,7 +160,7 @@ const TopTabsNavigator = () => {
         },
         labelStyle: {
           fontWeight: 'bold',
-          fontSize: 11,
+          fontSize: responsiveFontSize(1.7),
         },
         indicatorStyle: {
           backgroundColor: Colors.primary,

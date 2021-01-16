@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   ImageBackground,
+  ScrollView,
 } from 'react-native';
 import {Colors} from '../Constants/Color';
 
@@ -18,6 +19,12 @@ import shortid from 'shortid';
 
 import {connect} from 'react-redux';
 import {addWorkout} from '../store/actions/workout';
+
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
 
 const AddWorkoutScreen = ({navigation, addWorkout}) => {
   const [name, setName] = useState();
@@ -38,6 +45,7 @@ const AddWorkoutScreen = ({navigation, addWorkout}) => {
           <Icon
             name="checkmark-sharp"
             style={{
+              fontSize: responsiveFontSize(3),
               color: Colors.secondary,
             }}
           />
@@ -82,13 +90,13 @@ const AddWorkoutScreen = ({navigation, addWorkout}) => {
     <View style={styles.container}>
       <ImageBackground
         source={require('../Assets/Images/Image.jpg')}
-        style={{width: '100%', height: 150}}>
+        style={{width: responsiveWidth(100), height: responsiveHeight(18)}}>
         <Text
           style={{
             flex: 1,
             textAlign: 'center',
             textAlignVertical: 'center',
-            fontSize: 23,
+            fontSize: responsiveFontSize(2.1),
             color: Colors.secondary,
             backgroundColor: Colors.primaryOpacity,
             fontWeight: 'bold',
@@ -98,82 +106,82 @@ const AddWorkoutScreen = ({navigation, addWorkout}) => {
       </ImageBackground>
       <Text
         style={{
-          fontSize: 15,
+          fontSize: responsiveFontSize(1.7),
           fontWeight: 'bold',
-          padding: 15,
+          padding: 5,
           color: Colors.primary,
         }}>
         Workout Details
       </Text>
-      <Form>
-        <Item stackedLabel last>
-          <Label>Workout Name</Label>
-          <Input
-            placeholder="E.g., (Strength Training, Summer Plan)"
-            placeholderTextColor={'#c1c1c1'}
-            style={{
-              fontSize: 14,
-            }}
-            value={name}
-            onChangeText={(text) => setName(text)}
+      <ScrollView>
+        <Form>
+          <Item stackedLabel last>
+            <Label style={styles.inputStyle}>Workout Name</Label>
+            <Input
+              placeholder="E.g., (Strength Training, Summer Plan)"
+              placeholderTextColor={'#c1c1c1'}
+              style={styles.inputStyle}
+              value={name}
+              onChangeText={(text) => setName(text)}
+            />
+          </Item>
+          <ItemPicker
+            placeHolder="Workout Target"
+            data={[
+              {label: 'General Fitness', value: 'General Fitness'},
+              {label: 'Bulking', value: 'Bulking'},
+              {label: 'Cutting', value: 'Cutting'},
+              {label: 'Strength', value: 'Strength'},
+              {label: 'Sport Specific', value: 'Sport Specific'},
+            ]}
+            selectedValue={target}
+            setSelectedValue={setTarget}
           />
-        </Item>
-        <ItemPicker
-          placeHolder="Workout Target"
-          data={[
-            {label: 'General Fitness', value: 'General Fitness'},
-            {label: 'Bulking', value: 'Bulking'},
-            {label: 'Cutting', value: 'Cutting'},
-            {label: 'Strength', value: 'Strength'},
-            {label: 'Sport Specific', value: 'Sport Specific'},
-          ]}
-          selectedValue={target}
-          setSelectedValue={setTarget}
-        />
-        <ItemPicker
-          placeHolder="Workout Type"
-          data={[
-            {label: 'Gym Workout', value: 'Gym'},
-            {label: 'Home Workout', value: 'Home'},
-          ]}
-          selectedValue={type}
-          setSelectedValue={setType}
-        />
-        <ItemPicker
-          placeHolder="Difficulty Level"
-          data={[
-            {label: 'Beginner', value: 'Beginner'},
-            {label: 'Intermediate', value: 'Intermediate'},
-            {label: 'Advanced', value: 'Advanced'},
-          ]}
-          selectedValue={level}
-          setSelectedValue={setLevel}
-        />
-        <ItemPicker
-          placeHolder="Days Type"
-          data={[
-            {label: 'Weekly -E.g., Monday,Tuesday,....', value: 'Weekly'},
-            {label: 'Numarical -E.g., Day 1,Day 2.....', value: 'Days'},
-          ]}
-          selectedValue={daysType}
-          setSelectedValue={setDaysType}
-        />
+          <ItemPicker
+            placeHolder="Workout Type"
+            data={[
+              {label: 'Gym Workout', value: 'Gym'},
+              {label: 'Home Workout', value: 'Home'},
+            ]}
+            selectedValue={type}
+            setSelectedValue={setType}
+          />
+          <ItemPicker
+            placeHolder="Difficulty Level"
+            data={[
+              {label: 'Beginner', value: 'Beginner'},
+              {label: 'Intermediate', value: 'Intermediate'},
+              {label: 'Advanced', value: 'Advanced'},
+            ]}
+            selectedValue={level}
+            setSelectedValue={setLevel}
+          />
+          <ItemPicker
+            placeHolder="Days Type"
+            data={[
+              {label: 'Weekly -E.g., Monday,Tuesday,....', value: 'Weekly'},
+              {label: 'Numarical -E.g., Day 1,Day 2.....', value: 'Days'},
+            ]}
+            selectedValue={daysType}
+            setSelectedValue={setDaysType}
+          />
 
-        <ItemPicker
-          placeHolder="Main Muscle Target"
-          data={[
-            {label: 'Full Body', value: 'Full Body'},
-            {label: 'Chest', value: 'Chest'},
-            {label: 'Core', value: 'Core'},
-            {label: 'Arms', value: 'Arms'},
-            {label: 'Shoulder', value: 'Shoulder'},
-            {label: 'Back', value: 'Back'},
-            {label: 'Legs', value: 'Legs'},
-          ]}
-          selectedValue={muscleGroup}
-          setSelectedValue={setMuscleGroup}
-        />
-      </Form>
+          <ItemPicker
+            placeHolder="Main Muscle Target"
+            data={[
+              {label: 'Full Body', value: 'Full Body'},
+              {label: 'Chest', value: 'Chest'},
+              {label: 'Core', value: 'Core'},
+              {label: 'Arms', value: 'Arms'},
+              {label: 'Shoulder', value: 'Shoulder'},
+              {label: 'Back', value: 'Back'},
+              {label: 'Legs', value: 'Legs'},
+            ]}
+            selectedValue={muscleGroup}
+            setSelectedValue={setMuscleGroup}
+          />
+        </Form>
+      </ScrollView>
     </View>
   );
 };
@@ -192,5 +200,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(256,256,256,0.9)',
     flex: 1,
+  },
+  inputStyle: {
+    color: Colors.primary,
+    fontSize: responsiveFontSize(1.7),
   },
 });

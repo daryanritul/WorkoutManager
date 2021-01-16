@@ -16,7 +16,13 @@ import {connect} from 'react-redux';
 import {signUpUser} from '../store/actions/auth';
 
 import propTypes from 'prop-types';
-import {textSize, toastMessage} from '../Constants/Utility';
+import {toastMessage} from '../Constants/Utility';
+
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
 
 const SignUpScreen = ({signUpUser}) => {
   const [name, setName] = useState('');
@@ -45,7 +51,6 @@ const SignUpScreen = ({signUpUser}) => {
     setLoading(!loading);
     Keyboard.dismiss();
   };
-  console.log(next);
 
   return (
     <ImageBackground
@@ -55,9 +60,8 @@ const SignUpScreen = ({signUpUser}) => {
         <View
           style={{
             flex: 2,
-            margin: 10,
+            margin: responsiveWidth(8),
             justifyContent: 'center',
-            padding: 20,
           }}>
           <Form>
             {next === 0 && (
@@ -235,7 +239,7 @@ export default connect(null, mapDispatchToProps)(SignUpScreen);
 const styles = StyleSheet.create({
   authButton: {
     backgroundColor: 'rgba(255,255,255,0.7)',
-    width: '40%',
+    width: responsiveWidth(40),
     margin: 5,
     alignSelf: 'center',
     justifyContent: 'center',
@@ -245,7 +249,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: textSize.btn,
+    fontSize: responsiveFontSize(2.1),
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -253,7 +257,7 @@ const styles = StyleSheet.create({
     borderStartWidth: 2,
     borderBottomWidth: 2,
     borderColor: Colors.primary,
-    height: 65,
+    height: responsiveHeight(8),
     borderRadius: 5,
     marginVertical: 5,
     backgroundColor: 'rgba(255,255,255,0.8)',
@@ -261,16 +265,17 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: responsiveFontSize(1.7),
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: responsiveFontSize(1.7),
   },
   genderBox: {
     backgroundColor: 'rgba(255,255,255,0.7)',
-    height: 65,
+    height: responsiveHeight(8),
+
     width: '45%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -280,7 +285,6 @@ const styles = StyleSheet.create({
   },
   genderIcon: {
     color: Colors.primary,
-    // backgroundColor: Colors.secondaryOpacity,
-    fontSize: 40,
+    fontSize: responsiveFontSize(5),
   },
 });

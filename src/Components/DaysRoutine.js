@@ -8,6 +8,12 @@ import {
   TouchableOpacity,
 } from 'react-native-gesture-handler';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 import {Colors} from '../Constants/Color';
 
 const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
@@ -33,7 +39,7 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
         margin: 4,
         elevation: 3,
         width: '32%',
-        height: 160,
+        height: responsiveHeight(18),
       }}>
       <TouchableOpacity
         activeOpacity={0.6}
@@ -56,14 +62,16 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             }}>
             <Text
               style={{
-                fontSize: 14,
+                fontSize: responsiveFontSize(1.7),
+
                 color: '#fff',
               }}>
               WEEK {Math.trunc((day - 1) / 7 + 1)}
             </Text>
             <Text
               style={{
-                fontSize: 14,
+                fontSize: responsiveFontSize(1.7),
+
                 color: '#fff',
               }}>
               DAY {day}
@@ -80,7 +88,8 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             }}>
             <Text
               style={{
-                fontSize: 14,
+                fontSize: responsiveFontSize(1.7),
+
                 color: '#fff',
               }}>
               {weekDays[d]}
@@ -93,8 +102,9 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
           }}>
           <Text
             style={{
-              height: '30%',
-              fontSize: 13,
+              height: '34%',
+              fontSize: responsiveFontSize(1.7),
+
               paddingHorizontal: 5,
               paddingVertical: 2,
               fontWeight: 'bold',
@@ -106,7 +116,8 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             <Icon
               name={data.routineStatus ? 'cafe' : 'cafe-outline'}
               style={{
-                fontSize: 45,
+                fontSize: responsiveFontSize(5),
+                height: '49%',
                 textAlign: 'center',
                 paddingVertical: 10,
                 color: data.routineStatus ? '#29B966' : '#F2F2F2',
@@ -116,8 +127,8 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             <Icon
               name={'checkmark-circle'}
               style={{
-                fontSize: 40,
-                height: '53%',
+                fontSize: responsiveFontSize(5),
+                height: '49%',
                 textAlign: 'center',
                 textAlignVertical: 'center',
 
@@ -130,6 +141,8 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
               note
               style={{
                 height: '17%',
+                fontSize: responsiveFontSize(1.7),
+
                 textAlignVertical: 'center',
                 textAlign: 'center',
               }}>
@@ -143,13 +156,3 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
 };
 
 export default DaysRoutine;
-
-const styles = StyleSheet.create({
-  weekText: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 5,
-    color: Colors.primary,
-  },
-});

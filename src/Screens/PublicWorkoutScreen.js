@@ -6,6 +6,12 @@ import {connect} from 'react-redux';
 import ExploreCard from '../Components/ExploreCard';
 import {Colors} from '../Constants/Color';
 
+import {
+  responsiveFontSize,
+  responsiveHeight,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
+
 const PublicWorkoutScreen = ({navigation, route, publicState}) => {
   const {data} = route.params;
   const dataState = data === 'All' ? publicState : data;
@@ -16,9 +22,8 @@ const PublicWorkoutScreen = ({navigation, route, publicState}) => {
         <ImageBackground
           source={require('../Assets/Images/Image.jpg')}
           style={{
-            width: '100%',
-            height: 100,
-            elevation: 5,
+            width: responsiveWidth(100),
+            height: responsiveHeight(15),
           }}>
           <View
             style={{
@@ -31,7 +36,7 @@ const PublicWorkoutScreen = ({navigation, route, publicState}) => {
               style={{
                 color: Colors.secondary,
                 fontWeight: 'bold',
-                fontSize: 20,
+                fontSize: responsiveFontSize(2.1),
               }}>
               WORKOUTS
             </Text>
@@ -39,7 +44,7 @@ const PublicWorkoutScreen = ({navigation, route, publicState}) => {
         </ImageBackground>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingHorizontal: 10,
             paddingVertical: 4,
@@ -48,9 +53,9 @@ const PublicWorkoutScreen = ({navigation, route, publicState}) => {
           Workouts
         </Text>
       </View>
-      <ScrollView>
-        {dataState.length ? (
-          dataState.map((item, index) => (
+      {dataState.length ? (
+        <ScrollView>
+          {dataState.map((item, index) => (
             <View key={index}>
               <ExploreCard
                 item={item}
@@ -58,31 +63,36 @@ const PublicWorkoutScreen = ({navigation, route, publicState}) => {
                 routeName={route.name}
               />
             </View>
-          ))
-        ) : (
-          <View
+          ))}
+        </ScrollView>
+      ) : (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Icon
+            name="sad-outline"
             style={{
-              height: 600,
-              justifyContent: 'center',
-              alignItems: 'center',
+              fontSize: responsiveFontSize(5),
+            }}
+          />
+          <Text
+            style={{
+              fontSize: responsiveFontSize(2.1),
+              fontWeight: 'bold',
             }}>
-            <Icon
-              name="sad-outline"
-              style={{
-                fontSize: 50,
-              }}
-            />
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: 'bold',
-              }}>
-              OOPS...!
-            </Text>
-            <Text>No Workout Found</Text>
-          </View>
-        )}
-      </ScrollView>
+            OOPS...!
+          </Text>
+          <Text
+            style={{
+              fontSize: responsiveFontSize(1.7),
+            }}>
+            No Workout Found
+          </Text>
+        </View>
+      )}
     </View>
   );
 };

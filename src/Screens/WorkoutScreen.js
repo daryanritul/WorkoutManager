@@ -24,6 +24,12 @@ import {
 } from '../store/actions/workout';
 import {connect} from 'react-redux';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 import propTypes from 'prop-types';
 import {imageArray, toastMessage} from '../Constants/Utility';
 
@@ -43,14 +49,17 @@ const WorkoutScreen = ({
   const [editMode, setEditMode] = useState(false);
   const [modal, setModal] = useState(false);
   const dataState =
-    routeName === 'MyWorkoutsScreen'
+    routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen'
       ? listState.filter((item) => item.id === data.id)[0]
       : data;
   const workout = dataState.workoutData;
-  const dataid = routeName === 'MyWorkoutsScreen' ? data.id : data;
+  const dataid =
+    routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen'
+      ? data.id
+      : data;
   const toggleSwitch = () => repetitionStatus(dataState.id);
   useLayoutEffect(() => {
-    if (routeName === 'MyWorkoutsScreen')
+    if (routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen')
       navigation.setOptions({
         headerRight: () => (
           <TouchableOpacity
@@ -65,7 +74,7 @@ const WorkoutScreen = ({
               style={{
                 color: Colors.secondary,
                 padding: 5,
-                fontSize: 24,
+                fontSize: responsiveFontSize(3),
               }}
             />
           </TouchableOpacity>
@@ -103,6 +112,7 @@ const WorkoutScreen = ({
   const stat = dataState.workoutStatus.repetitionStatus;
   useEffect(() => {
     if (stat && fin) {
+      console.log('UPdating id ', dataid);
       resetWorkout(dataid, false), startWorkoutHandler();
     }
   }, [fin, stat]);
@@ -114,8 +124,7 @@ const WorkoutScreen = ({
         source={imageUrl}
         style={{
           width: '100%',
-          height: 250,
-          marginVertical: 3,
+          height: responsiveHeight(20),
         }}>
         <View
           style={{
@@ -126,8 +135,8 @@ const WorkoutScreen = ({
           <Text
             style={{
               color: Colors.secondary,
-              fontSize: 20,
-              padding: 10,
+              fontSize: responsiveFontSize(2.1),
+
               fontWeight: 'bold',
               textAlign: 'center',
             }}>
@@ -144,11 +153,10 @@ const WorkoutScreen = ({
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 marginHorizontal: 5,
-                padding: 1,
               }}>
               <Text
                 style={{
-                  fontSize: 13,
+                  fontSize: responsiveFontSize(1.7),
                   color: Colors.secondary,
                   fontWeight: 'bold',
                 }}>
@@ -158,7 +166,7 @@ const WorkoutScreen = ({
                 style={{
                   color: Colors.secondary,
                   fontWeight: 'bold',
-                  fontSize: 13,
+                  fontSize: responsiveFontSize(1.7),
                 }}>
                 {dataState.workoutData.length ===
                 dataState.workoutStatus.routineTracker
@@ -171,7 +179,7 @@ const WorkoutScreen = ({
               <Text
                 style={{
                   color: Colors.secondary,
-                  fontSize: 13,
+                  fontSize: responsiveFontSize(1.7),
                   fontWeight: 'bold',
                 }}>
                 100%
@@ -185,7 +193,7 @@ const WorkoutScreen = ({
               }}>
               <View
                 style={{
-                  height: 10,
+                  height: responsiveHeight(0.5),
                   backgroundColor: 'yellow',
                   width: `${
                     (100 / dataState.workoutData.length) *
@@ -203,7 +211,7 @@ const WorkoutScreen = ({
         }}>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingVertical: 8,
             paddingHorizontal: 10,
@@ -211,10 +219,10 @@ const WorkoutScreen = ({
           }}>
           Workouts
         </Text>
-        {routeName === 'MyWorkoutsScreen' && (
+        {(routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen') && (
           <Text
             style={{
-              fontSize: 15,
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 10,
               paddingVertical: 8,
@@ -252,12 +260,23 @@ const WorkoutScreen = ({
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Text>WORKOUT IS EMPTY</Text>
-            <Text note>Add Rest/Working Days To This Workout</Text>
+            <Text
+              style={{
+                fontSize: responsiveFontSize(2.1),
+              }}>
+              WORKOUT IS EMPTY
+            </Text>
+            <Text
+              note
+              style={{
+                fontSize: responsiveFontSize(1.7),
+              }}>
+              Add Rest/Working Days To This Workout
+            </Text>
           </View>
         )}
       </View>
-      {routeName === 'MyWorkoutsScreen' ? (
+      {routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen' ? (
         <View>
           {editMode ? (
             <View
@@ -286,7 +305,7 @@ const WorkoutScreen = ({
                 <Text
                   style={{
                     fontWeight: 'bold',
-                    fontSize: 15,
+                    fontSize: responsiveFontSize(1.7),
                   }}>
                   Add Rest Day
                 </Text>
@@ -306,7 +325,7 @@ const WorkoutScreen = ({
                 <Text
                   style={{
                     fontWeight: 'bold',
-                    fontSize: 15,
+                    fontSize: responsiveFontSize(1.7),
                   }}>
                   Add Workout Day
                 </Text>
@@ -319,7 +338,12 @@ const WorkoutScreen = ({
                 onPress={() => {
                   setEditMode(false);
                 }}>
-                <Icon name="checkmark-sharp" />
+                <Icon
+                  name="checkmark-sharp"
+                  style={{
+                    fontSize: responsiveFontSize(3),
+                  }}
+                />
               </Button>
             </View>
           ) : (
@@ -340,7 +364,7 @@ const WorkoutScreen = ({
                 <Text
                   style={{
                     fontWeight: 'bold',
-                    fontSize: 18,
+                    fontSize: responsiveFontSize(2.1),
                   }}>
                   {dataState.workoutStatus.activeStatus
                     ? 'workout in progress'
@@ -367,7 +391,7 @@ const WorkoutScreen = ({
           <Text
             style={{
               fontWeight: 'bold',
-              fontSize: 18,
+              fontSize: responsiveFontSize(2.1),
             }}>
             {validateAddWorkout(dataState.id) ? 'ADDED' : 'ADD TO MY WORKOUTS'}
           </Text>
@@ -390,16 +414,16 @@ const WorkoutScreen = ({
           }}>
           <View
             style={{
-              width: '70%',
+              width: responsiveWidth(70),
               backgroundColor: Colors.secondary,
-              padding: 20,
+              padding: 15,
               borderRadius: 5,
               elevation: 5,
               paddingTop: 8,
             }}>
             <Text
               style={{
-                fontSize: 15,
+                fontSize: responsiveFontSize(1.7),
                 fontWeight: 'bold',
                 paddingHorizontal: 15,
                 textAlign: 'center',
@@ -451,8 +475,8 @@ const WorkoutScreen = ({
               }}>
               <Text
                 style={{
-                  fontSize: 15,
-                  fontWeight: 'bold',
+                  fontSize: responsiveFontSize(1.7),
+
                   paddingHorizontal: 15,
                   paddingVertical: 8,
                   color: Colors.secondary,
@@ -513,19 +537,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.secondary,
   },
-  headText: {
-    fontSize: 16,
-    color: '#454545',
-    fontWeight: 'bold',
-    paddingHorizontal: 5,
-  },
   radioButton: {
-    fontSize: 14,
+    fontSize: responsiveFontSize(1.7),
+
     color: Colors.primary,
   },
   modalBtnText: {
-    fontWeight: 'bold',
     color: Colors.secondary,
+    fontSize: responsiveFontSize(1.7),
   },
   modalButton: {
     backgroundColor: Colors.primary,

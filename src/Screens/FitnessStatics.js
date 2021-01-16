@@ -15,6 +15,12 @@ import {updateUserData} from '../store/actions/auth';
 import {toastMessage} from '../Constants/Utility';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const StaticsCard = ({value, index, editMode, deleteHandler}) => {
   return (
     <View
@@ -43,7 +49,7 @@ const StaticsCard = ({value, index, editMode, deleteHandler}) => {
               style={{
                 color: Colors.secondary,
                 padding: 6,
-                fontSize: 25,
+                fontSize: responsiveFontSize(3),
               }}
             />
           </TouchableOpacity>
@@ -52,7 +58,8 @@ const StaticsCard = ({value, index, editMode, deleteHandler}) => {
             style={{
               color: Colors.secondary,
               padding: 5,
-              fontSize: 25,
+              fontSize: responsiveFontSize(2.1),
+
               fontWeight: 'bold',
             }}>
             {index + 1}
@@ -124,7 +131,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
             style={{
               color: Colors.secondary,
               padding: 5,
-              fontSize: 24,
+              fontSize: responsiveFontSize(3),
             }}
           />
         </TouchableOpacity>
@@ -174,7 +181,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
         source={require('../Assets/Images/Stats.jpg')}
         style={{
           width: '100%',
-          height: 180,
+          height: responsiveHeight(20),
           elevation: 5,
         }}>
         <View
@@ -187,7 +194,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
           <Text
             style={{
               fontWeight: 'bold',
-              fontSize: 23,
+              fontSize: responsiveFontSize(2.1),
               padding: 12,
               color: Colors.secondary,
             }}>
@@ -197,7 +204,8 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
       </ImageBackground>
       <Text
         style={{
-          fontSize: 15,
+          fontSize: responsiveFontSize(1.7),
+
           fontWeight: 'bold',
           paddingHorizontal: 5,
           paddingVertical: 4,
@@ -205,77 +213,77 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
         }}>
         Statistics
       </Text>
-      <ScrollView
-        contentContainerStyle={{
-          flex: 1,
+      <View
+        style={{
+          flexDirection: 'row',
+          marginHorizontal: 5,
+          marginVertical: 2.5,
+          marginBottom: 0,
+          backgroundColor: Colors.primaryLow,
+          borderRadius: 5,
         }}>
         <View
           style={{
+            width: '15%',
+            alignItems: 'center',
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRightWidth: 1,
+            marginVertical: 5,
+            borderColor: Colors.secondary,
+          }}>
+          <Text
+            style={{
+              color: Colors.secondary,
+              padding: 5,
+              fontSize: responsiveFontSize(1.7),
+
+              fontWeight: 'bold',
+            }}>
+            S . No
+          </Text>
+        </View>
+        <View
+          style={{
+            width: '85%',
             flexDirection: 'row',
-            marginHorizontal: 5,
-            marginVertical: 2.5,
-            backgroundColor: Colors.primaryLow,
-            borderRadius: 5,
           }}>
           <View
             style={{
-              width: '15%',
-              alignItems: 'center',
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
+              width: '33.33%',
               borderRightWidth: 1,
               marginVertical: 5,
               borderColor: Colors.secondary,
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
-            <Text
-              style={{
-                color: Colors.secondary,
-                padding: 5,
-                fontSize: 15,
-                fontWeight: 'bold',
-              }}>
-              S.No
-            </Text>
+            <Text style={[styles.statText, {fontWeight: 'bold'}]}>DATE</Text>
           </View>
           <View
             style={{
-              width: '85%',
-              flexDirection: 'row',
+              width: '33.33%',
+              borderRightWidth: 1,
+              marginVertical: 5,
+              borderColor: Colors.secondary,
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
-            <View
-              style={{
-                width: '33.33%',
-                borderRightWidth: 1,
-                marginVertical: 5,
-                borderColor: Colors.secondary,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Text style={styles.statText}>DATE</Text>
-            </View>
-            <View
-              style={{
-                width: '33.33%',
-                borderRightWidth: 1,
-                marginVertical: 5,
-                borderColor: Colors.secondary,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Text style={styles.statText}>WEIGHT</Text>
-            </View>
-            <View
-              style={{
-                width: '33.33%',
+            <Text style={[styles.statText, {fontWeight: 'bold'}]}>WEIGHT</Text>
+          </View>
+          <View
+            style={{
+              width: '33.33%',
 
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Text style={styles.statText}>HEIGHT</Text>
-            </View>
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text style={[styles.statText, {fontWeight: 'bold'}]}>HEIGHT</Text>
           </View>
         </View>
+      </View>
+
+      <ScrollView contentContainerStyle={{}}>
         {bodyStat.length ? (
           <View style={{}}>
             {bodyStat.map((value, index) => (
@@ -292,24 +300,29 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
         ) : (
           <View
             style={{
-              flex: 1,
+              height: responsiveHeight(50),
               justifyContent: 'center',
               alignItems: 'center',
             }}>
             <Icon
               name="sad-outline"
               style={{
-                fontSize: 50,
+                fontSize: responsiveFontSize(5),
               }}
             />
             <Text
               style={{
-                fontSize: 20,
+                fontSize: responsiveFontSize(2.1),
                 fontWeight: 'bold',
               }}>
               OOPS...!
             </Text>
-            <Text>NO RECORD YET</Text>
+            <Text
+              style={{
+                fontSize: responsiveFontSize(1.7),
+              }}>
+              NO RECORD YET
+            </Text>
           </View>
         )}
       </ScrollView>
@@ -322,7 +335,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
         <Text
           style={{
             fontWeight: 'bold',
-            fontSize: 18,
+            fontSize: responsiveFontSize(2),
             padding: 12,
             color: Colors.secondary,
           }}>
@@ -341,10 +354,11 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
+            backgroundColor: 'rgba(0,0,0,0.3)',
           }}>
           <View
             style={{
-              elevation: 8,
+              elevation: 5,
               backgroundColor: Colors.secondary,
               width: '80%',
               padding: 10,
@@ -355,7 +369,6 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   padding: 5,
-                  paddingHorizontal: 10,
                 }}>
                 <Button
                   onPress={() => {
@@ -406,11 +419,15 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                     style={{
                       color: Colors.primary,
                       fontWeight: 'bold',
+                      fontSize: responsiveFontSize(1.7),
                     }}>
                     DATE
                   </Label>
                   <Input
-                    style={{color: Colors.primary, fontWeight: 'bold'}}
+                    style={{
+                      color: Colors.primary,
+                      fontSize: responsiveFontSize(1.7),
+                    }}
                     keyboardType="number-pad"
                     placeholder="dd-mm-yy"
                     value={date}
@@ -423,11 +440,15 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   style={{
                     color: Colors.primary,
                     fontWeight: 'bold',
+                    fontSize: responsiveFontSize(1.7),
                   }}>
                   WEIGHT
                 </Label>
                 <Input
-                  style={{color: Colors.primary, fontWeight: 'bold'}}
+                  style={{
+                    color: Colors.primary,
+                    fontSize: responsiveFontSize(1.7),
+                  }}
                   keyboardType="number-pad"
                   placeholder="00.00 kg"
                   value={weight}
@@ -438,13 +459,15 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
               <View
                 style={{
                   flexDirection: 'row',
+                  marginVertical: 5,
                   justifyContent: 'space-between',
                 }}>
                 <Button
                   block
                   style={{
+                    height: responsiveHeight(5),
                     backgroundColor: Colors.primary,
-                    width: '48%',
+                    width: responsiveWidth(30),
                   }}
                   onPress={() => {
                     if (weight) {
@@ -457,8 +480,8 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   <Text
                     style={{
                       fontWeight: 'bold',
-                      fontSize: 18,
-                      padding: 12,
+                      fontSize: responsiveFontSize(1.8),
+
                       color: Colors.secondary,
                     }}>
                     ADD
@@ -468,7 +491,8 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   block
                   style={{
                     backgroundColor: Colors.primary,
-                    width: '48%',
+                    width: responsiveWidth(30),
+                    height: responsiveHeight(5),
                   }}
                   onPress={() => {
                     setModal(false);
@@ -478,8 +502,8 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   <Text
                     style={{
                       fontWeight: 'bold',
-                      fontSize: 18,
-                      padding: 12,
+                      fontSize: responsiveFontSize(1.8),
+
                       color: Colors.secondary,
                     }}>
                     CLOSE
@@ -507,51 +531,16 @@ export default connect(mapStateToProps, mapDispatchToProps)(FitnessStatics);
 const styles = StyleSheet.create({
   statText: {
     color: Colors.secondary,
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: responsiveFontSize(1.7),
   },
   setButton: {
     borderColor: Colors.primary,
     borderWidth: 0.5,
-    height: 30,
+    height: responsiveHeight(4),
     width: '45%',
     justifyContent: 'center',
   },
   setText: {
-    fontSize: 12,
+    fontSize: responsiveFontSize(1.2),
   },
 });
-
-/*
-Women:
-
-(1.20 x BMI) + (0.23 x Age) - 5.4 = Body Fat Percentage
-Men:
-
-(1.20 x BMI) + (0.23 x Age) - 16.2 = Body Fat Percentage
-
-
-
-  let monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  let [month, day, year] = new Date().toLocaleDateString('en-US').split('/');
-  var date = `${day}/${monthNames[month - 1]}/${year}`;
-  console.log(date);
-
-
-
-
-
-*/

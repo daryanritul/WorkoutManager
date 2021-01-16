@@ -7,6 +7,12 @@ import {Colors} from '../Constants/Color';
 
 import DisplayWorkout from '../Components/DisplayWorkout';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const WeightsScreen = ({navigation, route, listState}) => {
   const length = listState ? listState.length : 0;
   return (
@@ -36,12 +42,18 @@ const WeightsScreen = ({navigation, route, listState}) => {
             }}>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: responsiveFontSize(2.1),
                 fontWeight: 'bold',
               }}>
               NO WORKOUTS
             </Text>
-            <Text note>(Explore or Create your own workouts)</Text>
+            <Text
+              note
+              style={{
+                fontSize: responsiveFontSize(1.7),
+              }}>
+              (Explore or Create your own workouts)
+            </Text>
           </View>
         )}
       </View>
@@ -50,12 +62,13 @@ const WeightsScreen = ({navigation, route, listState}) => {
         onPress={() => navigation.navigate('AddWorkoutScreen')}
         style={{
           backgroundColor: Colors.primary,
+          height: responsiveHeight(5),
         }}>
         <Text
           style={{
             color: Colors.secondary,
             fontWeight: 'bold',
-            fontSize: 17,
+            fontSize: responsiveFontSize(2),
           }}>
           CREATE NEW WORKOUT
         </Text>

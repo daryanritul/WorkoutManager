@@ -21,10 +21,3 @@ export const imageArray = [
   require('../Assets/Images/Image14.jpg'),
   require('../Assets/Images/Image15.jpg'),
 ];
-
-export const textSize = {
-  btn: 14,
-  tiny: 9,
-  label: 12,
-  icon: 23,
-};

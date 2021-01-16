@@ -17,6 +17,12 @@ import {toastMessage} from '../Constants/Utility';
 import {signOutUser, updateUserData} from '../store/actions/auth';
 import {connect} from 'react-redux';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const ProfileListCard = ({keys, value, mode, setValue}) => {
   return (
     <View
@@ -24,7 +30,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
         flexDirection: 'row',
         paddingHorizontal: 5,
         paddingVertical: 5,
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 0.2,
         margin: 5,
       }}>
       <Text
@@ -32,7 +38,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
           width: '40%',
           textAlign: 'center',
           padding: 10,
-          fontSize: 20,
+          fontSize: responsiveFontSize(1.7),
           fontWeight: 'bold',
         }}>
         {keys}
@@ -41,7 +47,8 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
         style={{
           textAlign: 'center',
           padding: 10,
-          fontSize: 20,
+          fontSize: responsiveFontSize(1.7),
+
           fontWeight: 'bold',
         }}>
         :
@@ -49,7 +56,8 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
       {!mode ? (
         <Text
           style={{
-            fontSize: 18,
+            fontSize: responsiveFontSize(1.7),
+
             width: '60%',
             padding: 10,
             textAlign: 'left',
@@ -71,6 +79,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
               onValueChange={(value) => setValue(value)}
               style={{
                 width: 200,
+                fontSize: responsiveFontSize(1.7),
               }}>
               <Picker.Item label="Beginner" value="Beginner" />
               <Picker.Item label="Intermediate" value="Intermediate" />
@@ -83,9 +92,12 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
               onChangeText={(text) => setValue(text)}
               keyboardType="number-pad"
               style={{
-                fontSize: 18,
-                padding: 10,
+                fontSize: responsiveFontSize(1.7),
+
+                padding: 5,
                 textAlign: 'left',
+                borderBottomWidth: 0.4,
+                borderColor: 'green',
               }}
             />
           )}
@@ -130,7 +142,7 @@ const ProfileScreen = ({
               style={{
                 color: Colors.secondary,
                 padding: 5,
-                fontSize: 24,
+                fontSize: responsiveFontSize(3),
               }}
             />
           </TouchableOpacity>
@@ -140,68 +152,56 @@ const ProfileScreen = ({
 
   return (
     <View style={styles.container}>
-      <View
+      <ImageBackground
+        source={require('../Assets/Images/Image15.jpg')}
         style={{
-          flex: 1,
-          justifyContent: 'center',
+          width: '100%',
+          height: responsiveHeight(25),
+          elevation: 5,
         }}>
         <View
           style={{
             flex: 1,
+            backgroundColor: Colors.primaryOpacity,
+            justifyContent: 'center',
+            alignItems: 'center',
           }}>
-          <ImageBackground
-            source={require('../Assets/Images/Image15.jpg')}
+          <View
             style={{
-              flex: 1,
-              width: '100%',
-              height: '100%',
-              elevation: 5,
+              height: responsiveHeight(12),
+              width: responsiveHeight(12),
+              borderWidth: 3,
+              borderColor: Colors.secondary,
             }}>
-            <View
+            <Text
               style={{
+                textAlign: 'center',
+                textAlignVertical: 'center',
+                color: Colors.secondary,
+                fontSize: responsiveFontSize(5),
+                fontWeight: 'bold',
                 flex: 1,
-                backgroundColor: Colors.primaryOpacity,
-                justifyContent: 'center',
-                alignItems: 'center',
+                backgroundColor: 'rgba(0,0,0,0.6)',
               }}>
-              <View
-                style={{
-                  height: 120,
-                  width: 120,
-                  borderWidth: 3,
-                  borderColor: Colors.secondary,
-
-                  // backgroundColor: Colors.secondary,
-                }}>
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    textAlignVertical: 'center',
-                    color: Colors.secondary,
-                    fontSize: 70,
-                    fontWeight: 'bold',
-                    flex: 1,
-                    backgroundColor: 'rgba(0,0,0,0.6)',
-                  }}>
-                  {userState.name.charAt(0)}
-                </Text>
-              </View>
-              <Text
-                style={{
-                  fontWeight: 'bold',
-                  fontSize: 23,
-                  padding: 12,
-                  color: Colors.secondary,
-                }}>
-                {userState.name.toUpperCase()}
-              </Text>
-            </View>
-          </ImageBackground>
+              {userState.name.charAt(0)}
+            </Text>
+          </View>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: responsiveFontSize(2.5),
+              padding: 12,
+              color: Colors.secondary,
+              textAlignVertical: 'bottom',
+            }}>
+            {userState.name.toUpperCase()}
+          </Text>
         </View>
-      </View>
+      </ImageBackground>
+
       <View
         style={{
-          flex: 3,
+          flex: 1,
         }}>
         <ScrollView
           style={{
@@ -209,7 +209,7 @@ const ProfileScreen = ({
           }}>
           <Text
             style={{
-              fontSize: 17,
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 10,
               paddingVertical: 10,
@@ -283,7 +283,8 @@ const ProfileScreen = ({
           <Text
             style={{
               fontWeight: 'bold',
-              fontSize: 20,
+              fontSize: responsiveFontSize(2.1),
+
               padding: 12,
               textAlign: 'center',
               width: '90%',
@@ -296,7 +297,7 @@ const ProfileScreen = ({
             style={{
               color: Colors.secondary,
               width: '10%',
-              fontSize: 25,
+              fontSize: responsiveFontSize(3),
             }}
           />
         </Button>

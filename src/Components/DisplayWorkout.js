@@ -16,14 +16,20 @@ import {imageArray} from '../Constants/Utility';
 import {removeWorkout} from '../store/actions/workout';
 import {connect} from 'react-redux';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
   var imageUrl = imageArray[itemData.item.imageUrl];
   return (
     <ImageBackground
       source={imageUrl}
       style={{
-        width: '100%',
-        height: 170,
+        width: responsiveWidth(100),
+        height: responsiveHeight(18),
         marginVertical: 3,
       }}
       imageStyle={{}}>
@@ -40,7 +46,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
           }}>
           <Text
             style={{
-              fontSize: 13,
+              fontSize: responsiveFontSize(1.7),
               color: Colors.secondary,
               fontWeight: 'bold',
             }}>
@@ -50,7 +56,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
             style={{
               color: Colors.secondary,
               fontWeight: 'bold',
-              fontSize: 13,
+              fontSize: responsiveFontSize(1.7),
             }}>
             {itemData.item.target}
           </Text>
@@ -58,14 +64,14 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
             style={{
               color: Colors.secondary,
               fontWeight: 'bold',
-              fontSize: 13,
+              fontSize: responsiveFontSize(1.7),
             }}>
             {itemData.item.type}
           </Text>
           <Text
             style={{
               color: Colors.secondary,
-              fontSize: 13,
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
             }}>
             {itemData.item.workoutData ? itemData.item.workoutData.length : '0'}{' '}
@@ -107,7 +113,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
           <Text
             style={{
               color: Colors.secondary,
-              fontSize: 20,
+              fontSize: responsiveFontSize(2.1),
               padding: 10,
               fontWeight: 'bold',
               textAlign: 'center',
@@ -130,7 +136,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
             }}>
             <Text
               style={{
-                fontSize: 13,
+                fontSize: responsiveFontSize(1.7),
                 color: Colors.secondary,
                 fontWeight: 'bold',
               }}>
@@ -144,7 +150,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
               style={{
                 color: Colors.secondary,
                 fontWeight: 'bold',
-                fontSize: 13,
+                fontSize: responsiveFontSize(1.7),
               }}>
               {`${
                 itemData.item.workoutData.length -

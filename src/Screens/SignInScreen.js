@@ -12,7 +12,14 @@ import {Text, Icon, Button, Form, Item, Input, Label} from 'native-base';
 import {Colors} from '../Constants/Color';
 import {connect} from 'react-redux';
 import {signInUser} from '../store/actions/auth';
-import {textSize, toastMessage} from '../Constants/Utility';
+import {toastMessage} from '../Constants/Utility';
+
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const SignInScreen = ({signInUser}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,35 +38,30 @@ const SignInScreen = ({signInUser}) => {
             style={{
               flex: 4,
               justifyContent: 'center',
+              margin: responsiveWidth(8),
             }}>
-            <View
-              style={{
-                margin: 20,
-                padding: 20,
-              }}>
-              <Form>
-                <Item stackedLabel last style={styles.itemStyle}>
-                  <Label style={styles.labelStyle}>Email Address</Label>
-                  <Input
-                    style={styles.inputStyle}
-                    placeholder="user@example.com"
-                    value={email}
-                    autoCapitalize="none"
-                    keyboardType="email-address"
-                    onChangeText={(text) => setEmail(text)}
-                  />
-                </Item>
-                <Item stackedLabel last style={styles.itemStyle}>
-                  <Label style={styles.labelStyle}>Password</Label>
-                  <Input
-                    style={styles.inputStyle}
-                    secureTextEntry={true}
-                    value={password}
-                    onChangeText={(text) => setPassword(text)}
-                  />
-                </Item>
-              </Form>
-            </View>
+            <Form>
+              <Item stackedLabel last style={styles.itemStyle}>
+                <Label style={styles.labelStyle}>Email Address</Label>
+                <Input
+                  style={styles.inputStyle}
+                  placeholder="user@example.com"
+                  value={email}
+                  autoCapitalize="none"
+                  keyboardType="email-address"
+                  onChangeText={(text) => setEmail(text)}
+                />
+              </Item>
+              <Item stackedLabel last style={styles.itemStyle}>
+                <Label style={styles.labelStyle}>Password</Label>
+                <Input
+                  style={styles.inputStyle}
+                  secureTextEntry={true}
+                  value={password}
+                  onChangeText={(text) => setPassword(text)}
+                />
+              </Item>
+            </Form>
           </View>
           <View style={{flex: 2}}>
             <View
@@ -98,7 +100,7 @@ export default connect(null, mapDispatchToProps)(SignInScreen);
 const styles = StyleSheet.create({
   authButton: {
     backgroundColor: 'rgba(255,255,255,0.7)',
-    width: '60%',
+    width: responsiveWidth(60),
     margin: 5,
     alignSelf: 'center',
     justifyContent: 'center',
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: textSize.btn,
+    fontSize: responsiveFontSize(2.1),
   },
   itemStyle: {
     borderTopWidth: 2,
@@ -123,11 +125,11 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: responsiveFontSize(1.7),
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: textSize.label,
+    fontSize: responsiveFontSize(1.7),
   },
 });

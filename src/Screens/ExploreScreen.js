@@ -16,6 +16,12 @@ import ExploreCard from '../Components/ExploreCard';
 import {setPublicWorkout} from '../store/actions/publicWorkout';
 import {connect} from 'react-redux';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [dataState, setDataState] = useState();
@@ -56,8 +62,8 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
       <View
         style={{
           marginRight: 2.5,
-          height: 80,
-          width: 150,
+          height: responsiveHeight(10),
+          width: responsiveWidth(40),
           backgroundColor: Colors.primaryLow,
         }}>
         <TouchableOpacity
@@ -75,7 +81,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
           }}>
           <Text
             style={{
-              fontSize: 15,
+              fontSize: responsiveFontSize(1.8),
               color: Colors.secondary,
               fontWeight: 'bold',
             }}>
@@ -96,7 +102,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
       <View>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -110,78 +116,68 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
             justifyContent: 'space-between',
             flex: 1,
           }}>
-          <View
+          <ImageBackground
+            source={require('../Assets/Images/gym.jpg')}
             style={{
-              width: '50%',
-              paddingRight: 2.5,
+              width: responsiveWidth(49.5),
+              height: responsiveHeight(12),
             }}>
-            <ImageBackground
-              source={require('../Assets/Images/gym.jpg')}
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('PublicWorkoutScreen', {
+                  data: dataState.filter(
+                    (value) => value.workout.type === 'Gym',
+                  ),
+                })
+              }
               style={{
-                width: '100%',
-                height: 100,
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: Colors.primaryOpacity,
               }}>
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate('PublicWorkoutScreen', {
-                    data: dataState.filter(
-                      (value) => value.workout.type === 'Gym',
-                    ),
-                  })
-                }
+              <Text
                 style={{
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: Colors.primaryOpacity,
+                  fontSize: responsiveFontSize(2.1),
+                  color: Colors.secondary,
+                  fontWeight: 'bold',
                 }}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: Colors.secondary,
-                    fontWeight: 'bold',
-                  }}>
-                  GYM WORKOUTS
-                </Text>
-              </TouchableOpacity>
-            </ImageBackground>
-          </View>
-          <View
+                GYM WORKOUTS
+              </Text>
+            </TouchableOpacity>
+          </ImageBackground>
+
+          <ImageBackground
+            source={require('../Assets/Images/home.jpg')}
             style={{
-              width: '50%',
-              paddingLeft: 2.5,
+              width: responsiveWidth(49.5),
+
+              height: responsiveHeight(12),
             }}>
-            <ImageBackground
-              source={require('../Assets/Images/home.jpg')}
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('PublicWorkoutScreen', {
+                  data: dataState.filter(
+                    (value) => value.workout.type === 'Home',
+                  ),
+                })
+              }
               style={{
-                width: '100%',
-                height: 100,
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: Colors.primaryOpacity,
               }}>
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate('PublicWorkoutScreen', {
-                    data: dataState.filter(
-                      (value) => value.workout.type === 'Home',
-                    ),
-                  })
-                }
+              <Text
                 style={{
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: Colors.primaryOpacity,
+                  fontSize: responsiveFontSize(2.1),
+                  color: Colors.secondary,
+                  fontWeight: 'bold',
                 }}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: Colors.secondary,
-                    fontWeight: 'bold',
-                  }}>
-                  HOME WORKOUTS
-                </Text>
-              </TouchableOpacity>
-            </ImageBackground>
-          </View>
+                HOME WORKOUTS
+              </Text>
+            </TouchableOpacity>
+          </ImageBackground>
         </View>
       </View>
       <View>
@@ -192,7 +188,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
           }}>
           <Text
             style={{
-              fontSize: 15,
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 5,
               paddingVertical: 4,
@@ -202,20 +198,19 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
           </Text>
           <Text
             style={{
-              fontSize: 15,
+              fontSize: responsiveFontSize(1.2),
               fontWeight: 'bold',
               paddingHorizontal: 5,
               paddingVertical: 4,
               color: Colors.primary,
             }}>
-            Scroll {'>'}
+            Scroll Right {'->'}
           </Text>
         </View>
 
         <View
           style={{
             flex: 1,
-            //   margin: 2.5,
           }}>
           <FlatList
             data={category}
@@ -234,7 +229,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
           }}>
           <Text
             style={{
-              fontSize: 15,
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 5,
               paddingVertical: 4,
@@ -250,7 +245,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
             }>
             <Text
               style={{
-                fontSize: 15,
+                fontSize: responsiveFontSize(1.7),
                 fontWeight: 'bold',
                 paddingHorizontal: 10,
                 paddingVertical: 4,
@@ -280,8 +275,8 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
           source={require('../Assets/Images/Image.jpg')}
           style={{
             flex: 1,
-            width: '100%',
-            height: 100,
+            width: responsiveWidth(100),
+            height: responsiveHeight(15),
           }}>
           <TouchableOpacity
             style={{
@@ -296,7 +291,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
             }>
             <Text
               style={{
-                fontSize: 18,
+                fontSize: responsiveFontSize(2.1),
                 fontWeight: 'bold',
                 paddingHorizontal: 10,
                 textAlign: 'center',
@@ -317,25 +312,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(ExploreScreen);
-
-const styles = StyleSheet.create({
-  bodyText: {
-    color: Colors.secondary,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 5,
-    fontSize: 20,
-  },
-  bodyHead: {
-    color: Colors.secondary,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 5,
-    fontSize: 15,
-  },
-  bodyFoot: {
-    color: Colors.secondary,
-    fontWeight: 'bold',
-    padding: 5,
-  },
-});

@@ -13,6 +13,12 @@ import {connect} from 'react-redux';
 
 import {imageArray, toastMessage} from '../Constants/Utility';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const RoutineScreen = ({
   route,
   navigation,
@@ -73,7 +79,7 @@ const RoutineScreen = ({
         }}>
         <Text
           style={{
-            fontSize: 16,
+            fontSize: responsiveFontSize(1.7),
             color: Colors.primary,
             fontWeight: 'bold',
           }}>
@@ -86,21 +92,21 @@ const RoutineScreen = ({
           }}>
           <Text
             style={{
-              fontSize: 14,
+              fontSize: responsiveFontSize(1.5),
             }}>
             Sets : {sets}
           </Text>
 
           <Text
             style={{
-              fontSize: 14,
+              fontSize: responsiveFontSize(1.5),
             }}>
             Rest : {rest} Sec
           </Text>
         </View>
         <Text
           style={{
-            fontSize: 14,
+            fontSize: responsiveFontSize(1.5),
           }}>
           Reps : {reps}
         </Text>
@@ -120,7 +126,7 @@ const RoutineScreen = ({
         }}>
         <Text
           style={{
-            fontSize: 25,
+            fontSize: responsiveFontSize(3),
             fontWeight: 'bold',
             width: '15%',
             backgroundColor: Colors.primary,
@@ -166,8 +172,8 @@ const RoutineScreen = ({
       <ImageBackground
         source={imageUrl}
         style={{
-          width: '100%',
-          height: 150,
+          width: responsiveWidth(100),
+          height: responsiveHeight(15),
           marginVertical: 3,
         }}>
         <View
@@ -179,7 +185,7 @@ const RoutineScreen = ({
           <Text
             style={{
               color: Colors.secondary,
-              fontSize: 20,
+              fontSize: responsiveFontSize(2.1),
               fontWeight: 'bold',
               textAlign: 'center',
             }}>
@@ -190,7 +196,7 @@ const RoutineScreen = ({
       </ImageBackground>
       <Text
         style={{
-          fontSize: 15,
+          fontSize: responsiveFontSize(1.5),
           fontWeight: 'bold',
           paddingHorizontal: 15,
           paddingVertical: 5,
@@ -242,7 +248,7 @@ const RoutineScreen = ({
           }}>
           <Text
             style={{
-              fontSize: 18,
+              fontSize: responsiveFontSize(2),
               fontWeight: 'bold',
             }}>
             {data.routineStatus ? 'COMPLETED' : 'MARK AS DONE'}
@@ -263,9 +269,6 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => ({
   listState: state.workout,
 });
-// RoutineScreen.propTypes = {
-//   markAsDone: propTypes.func.isRequired,
-// };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RoutineScreen);
 

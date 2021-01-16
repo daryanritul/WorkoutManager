@@ -92,13 +92,15 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
             } else {
               navigation.navigate('WorkoutScreen', {
                 data: item,
+                routeName: route.name,
               });
+              console.log(item);
             }
           }}>
           <View
             style={{
               flex: 1,
-              justifyContent: 'flex-start',
+              justifyContent: !todaysRoutine ? 'center' : 'flex-start',
             }}>
             <Text
               style={{

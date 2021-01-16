@@ -49,11 +49,14 @@ const WorkoutScreen = ({
   const [editMode, setEditMode] = useState(false);
   const [modal, setModal] = useState(false);
   const dataState =
-    routeName === 'MyWorkoutsScreen'
+    routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen'
       ? listState.filter((item) => item.id === data.id)[0]
       : data;
   const workout = dataState.workoutData;
-  const dataid = routeName === 'MyWorkoutsScreen' ? data.id : data;
+  const dataid =
+    routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen'
+      ? data.id
+      : data;
   const toggleSwitch = () => repetitionStatus(dataState.id);
   useLayoutEffect(() => {
     if (routeName === 'MyWorkoutsScreen')
@@ -109,6 +112,7 @@ const WorkoutScreen = ({
   const stat = dataState.workoutStatus.repetitionStatus;
   useEffect(() => {
     if (stat && fin) {
+      console.log('UPdating id ', dataid);
       resetWorkout(dataid, false), startWorkoutHandler();
     }
   }, [fin, stat]);
@@ -215,7 +219,7 @@ const WorkoutScreen = ({
           }}>
           Workouts
         </Text>
-        {routeName === 'MyWorkoutsScreen' && (
+        {(routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen') && (
           <Text
             style={{
               fontSize: responsiveFontSize(1.5),
@@ -272,7 +276,7 @@ const WorkoutScreen = ({
           </View>
         )}
       </View>
-      {routeName === 'MyWorkoutsScreen' ? (
+      {routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen' ? (
         <View>
           {editMode ? (
             <View

@@ -4,6 +4,12 @@ import {FlatList, ImageBackground, StyleSheet, Image, View} from 'react-native';
 import {Text, Icon, Button, Form, Item, Input, Label} from 'native-base';
 import {Colors} from '../Constants/Color';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const WelcomeScreen = ({navigation}) => {
   return (
     <ImageBackground
@@ -14,8 +20,8 @@ const WelcomeScreen = ({navigation}) => {
           <Image
             source={require('../Assets/Images/AppLogo.png')}
             style={{
-              height: 200,
-              width: 270,
+              height: responsiveHeight(30),
+              width: responsiveWidth(80),
             }}
           />
         </View>
@@ -49,7 +55,7 @@ export default WelcomeScreen;
 const styles = StyleSheet.create({
   authButton: {
     backgroundColor: 'rgba(255,255,255,0.7)',
-    width: '60%',
+    width: responsiveWidth(60),
     margin: 5,
     alignSelf: 'center',
   },
@@ -59,12 +65,12 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-Bold',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: responsiveFontSize(2.1),
   },
   btnText: {
     color: Colors.secondary,
     textAlign: 'center',
-    fontSize: 9,
+    fontSize: responsiveFontSize(1.2),
     fontFamily: 'OpenSans-Regular',
   },
   itemStyle: {

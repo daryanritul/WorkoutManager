@@ -16,6 +16,12 @@ import {connect} from 'react-redux';
 import {addRoutine} from '../store/actions/workout';
 import propTypes from 'prop-types';
 
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const AddExerciseScreen = ({navigation, route, addRoutine}) => {
   const {data} = route.params;
   const [exerciseData, setExerciseData] = useState([]);
@@ -49,7 +55,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
               padding: 5,
               color: Colors.primary,
               marginHorizontal: 15,
-              fontSize: 18,
+              fontSize: responsiveFontSize(1.8),
               fontWeight: 'bold',
             }}>
             SAVE
@@ -59,74 +65,100 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
     });
   }, [navigation, exerciseData, name]);
 
+  const DisplayExercise = ({name, sets, reps, rest}) => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: Colors.secondaryLow,
+          marginHorizontal: 5,
+          marginVertical: 5,
+        }}>
+        <Text
+          style={{
+            fontSize: responsiveFontSize(1.7),
+            color: Colors.primary,
+            fontWeight: 'bold',
+          }}>
+          {name}
+        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
+          <Text
+            style={{
+              fontSize: responsiveFontSize(1.5),
+            }}>
+            Sets : {sets}
+          </Text>
+
+          <Text
+            style={{
+              fontSize: responsiveFontSize(1.5),
+            }}>
+            Rest : {rest} Sec
+          </Text>
+        </View>
+        <Text
+          style={{
+            fontSize: responsiveFontSize(1.5),
+          }}>
+          Reps : {reps}
+        </Text>
+      </View>
+    );
+  };
+
   const renderExerciseData = ({item, index}) => {
+    var set = index + 1;
     return (
       <TouchableOpacity
+        style={{
+          flexDirection: 'row',
+          marginVertical: 2,
+          elevation: 3,
+          backgroundColor: Colors.secondaryLow,
+        }}
         onLongPress={() => {
           setExerciseData(
             exerciseData.filter((itemData) => itemData.id !== item.id),
-            console.log('i am pressed'),
           );
         }}>
+        <Text
+          style={{
+            fontSize: responsiveFontSize(3),
+            fontWeight: 'bold',
+            width: '15%',
+            backgroundColor: Colors.primary,
+            textAlign: 'center',
+            color: Colors.secondary,
+            textAlignVertical: 'center',
+          }}>
+          {set}
+        </Text>
         <View
           style={{
-            width: '100%',
-            paddingHorizontal: 20,
-            paddingTop: 5,
-            paddingBottom: 3,
-            marginLeft: 10,
-            marginVertical: 5,
-            backgroundColor: '#fff',
+            flex: 1,
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: 'bold',
-                color: '#454545',
-              }}>
-              {index + 1}.{' '}
-              {item.data.length === 1
-                ? `${item.data[0].name}`
-                : item.data.length === 2
-                ? 'Super Set'
-                : item.data.length === 3
-                ? 'Gaint Set'
-                : ''}
-            </Text>
-          </View>
-
           {item.data.map((value, index) => (
             <View
               key={value.id}
               style={{
-                marginHorizontal: 20,
+                borderBottomWidth:
+                  item.data.length > 1 && index < item.data.length - 1
+                    ? 0.5
+                    : 0,
+                marginHorizontal: 10,
               }}>
-              {item.data.length > 1 ? (
-                <Text
-                  style={{
-                    fontSize: 15,
-                    padding: 2,
-                  }}>
-                  {item.data.length > 1 ? `${index + 1}.` : ''} {value.name}
-                </Text>
-              ) : null}
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  paddingVertical: 2,
-                  paddingHorizontal: 20,
-                }}>
-                <Text note>
-                  SETS : {value.sets} X {value.reps}
-                </Text>
-                <Text note> REST : {value.rest}s</Text>
-              </View>
+              <DisplayExercise
+                name={value.name}
+                index={`${set}.${index + 1}`}
+                sets={value.sets}
+                reps={value.reps}
+                rest={value.rest}
+              />
             </View>
           ))}
         </View>
@@ -160,7 +192,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
         <Item inlineLabel last>
           <Label
             style={{
-              fontSize: 18,
+              fontSize: responsiveFontSize(1.5),
               fontWeight: 'bold',
             }}>
             Day Title :
@@ -169,27 +201,37 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
             placeholder="E.g., (Chest & Triceps, Shoulder,Back)"
             placeholderTextColor={'#c1c1c1'}
             style={{
-              fontSize: 14,
+              fontSize: responsiveFontSize(1.5),
             }}
             value={name}
             onChangeText={(text) => setName(text)}
           />
         </Item>
-        <Text
-          style={{
-            textAlign: 'center',
-            color: Colors.primary,
-            fontWeight: 'bold',
-            fontSize: 20,
-            padding: 10,
-            paddingBottom: 2,
-          }}>
-          Exercise List
-        </Text>
       </Form>
+      <Text
+        style={{
+          textAlign: 'center',
+          color: Colors.primary,
+          fontWeight: 'bold',
+          fontSize: responsiveFontSize(1.7),
+
+          padding: 10,
+          paddingBottom: 2,
+        }}>
+        Exercises
+      </Text>
+      <Text
+        note
+        style={{
+          fontSize: responsiveFontSize(1.5),
+          textAlign: 'center',
+        }}>
+        (Long Press to Delete Exercise from list)
+      </Text>
       <View
         style={{
           flex: 1,
+          margin: 5,
         }}>
         {exerciseData.length ? (
           <FlatList
@@ -207,7 +249,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
             }}>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: responsiveFontSize(2.1),
 
                 fontWeight: 'bold',
               }}>
@@ -216,9 +258,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
             <Text
               note
               style={{
-                fontSize: 15,
-
-                fontWeight: 'bold',
+                fontSize: responsiveFontSize(1.5),
               }}>
               (Add new exercise to list)
             </Text>
@@ -235,7 +275,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
           <Text
             style={{
               fontWeight: 'bold',
-              fontSize: 18,
+              fontSize: responsiveFontSize(1.8),
             }}>
             ADD NEW Exercise
           </Text>
@@ -344,16 +384,13 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
                 inlineLabel
                 last
                 style={{
-                  height: 40,
+                  height: responsiveHeight(5),
                 }}>
-                <Label>EXERCISE NAME : </Label>
+                <Label style={styles.inputStyle}>EXERCISE NAME : </Label>
                 <Input
                   value={exName}
                   onChangeText={(text) => setExName(text)}
-                  style={{
-                    //                    backgroundColor: Colors.secondaryLow,
-                    fontWeight: 'bold',
-                  }}
+                  style={styles.inputStyle}
                 />
               </Item>
               <View style={{}}>
@@ -365,26 +402,30 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
                   <Item
                     inlineLabel
                     style={{
-                      height: 40,
+                      height: responsiveHeight(5),
+
                       width: '40%',
                     }}>
-                    <Label>SETS : </Label>
+                    <Label style={styles.inputStyle}>SETS : </Label>
                     <Input
                       keyboardType="number-pad"
                       value={sets}
+                      style={styles.inputStyle}
                       onChangeText={(text) => setSets(text)}
                     />
                   </Item>
                   <Item
                     inlineLabel
                     style={{
-                      height: 40,
+                      height: responsiveHeight(5),
+
                       width: '45%',
                     }}>
-                    <Label>REST : </Label>
+                    <Label style={styles.inputStyle}>REST : </Label>
                     <Input
                       keyboardType="number-pad"
                       value={rest}
+                      style={styles.inputStyle}
                       onChangeText={(text) => setRest(text)}
                     />
                   </Item>
@@ -393,12 +434,13 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
                 <Item
                   inlineLabel
                   style={{
-                    height: 40,
+                    height: responsiveHeight(5),
                   }}>
-                  <Label>REPS : </Label>
+                  <Label style={styles.inputStyle}>REPS : </Label>
                   <Input
                     keyboardType="number-pad"
                     value={reps}
+                    style={styles.inputStyle}
                     onChangeText={(text) => setReps(text)}
                   />
                 </Item>
@@ -480,18 +522,20 @@ const styles = StyleSheet.create({
   },
   itemText: {
     padding: 10,
-    fontSize: 15,
+    fontSize: responsiveFontSize(1.5),
+
     color: '#454545',
   },
   buttonBox: {
     backgroundColor: Colors.primary,
-    width: '35%',
+    width: responsiveWidth(35),
     justifyContent: 'center',
     height: 35,
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: responsiveFontSize(1.8),
   },
   setButton: {
     borderColor: Colors.primary,
@@ -502,5 +546,10 @@ const styles = StyleSheet.create({
   },
   setText: {
     fontSize: 12,
+    fontSize: responsiveFontSize(1.2),
+  },
+  inputStyle: {
+    color: Colors.primary,
+    fontSize: responsiveFontSize(1.6),
   },
 });

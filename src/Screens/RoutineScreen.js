@@ -74,12 +74,12 @@ const RoutineScreen = ({
         style={{
           flex: 1,
           backgroundColor: Colors.secondaryLow,
-          marginHorizontal: 10,
-          marginVertical: 10,
+          marginHorizontal: 5,
+          marginVertical: 5,
         }}>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.7),
+            fontSize: responsiveFontSize(1.6),
             color: Colors.primary,
             fontWeight: 'bold',
           }}>

@@ -102,7 +102,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
       <View>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -188,7 +188,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
           }}>
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 5,
               paddingVertical: 4,
@@ -229,7 +229,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
           }}>
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 5,
               paddingVertical: 4,
@@ -245,7 +245,7 @@ const ExploreScreen = ({navigation, route, setPublicWorkout}) => {
             }>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
                 fontWeight: 'bold',
                 paddingHorizontal: 10,
                 paddingVertical: 4,

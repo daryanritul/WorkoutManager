@@ -79,7 +79,7 @@ const RoutineScreen = ({
         }}>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.6),
+            fontSize: responsiveFontSize(1.7),
             color: Colors.primary,
             fontWeight: 'bold',
           }}>
@@ -92,21 +92,21 @@ const RoutineScreen = ({
           }}>
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}>
             Sets : {sets}
           </Text>
 
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}>
             Rest : {rest} Sec
           </Text>
         </View>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
           }}>
           Reps : {reps}
         </Text>
@@ -196,7 +196,7 @@ const RoutineScreen = ({
       </ImageBackground>
       <Text
         style={{
-          fontSize: responsiveFontSize(1.5),
+          fontSize: responsiveFontSize(1.7),
           fontWeight: 'bold',
           paddingHorizontal: 15,
           paddingVertical: 5,

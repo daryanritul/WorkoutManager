@@ -44,7 +44,7 @@ const PublicWorkoutScreen = ({navigation, route, publicState}) => {
         </ImageBackground>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingHorizontal: 10,
             paddingVertical: 4,
@@ -87,7 +87,7 @@ const PublicWorkoutScreen = ({navigation, route, publicState}) => {
           </Text>
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}>
             No Workout Found
           </Text>

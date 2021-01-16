@@ -94,13 +94,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     padding: 3,
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
   },
   bodyFoot: {
     color: Colors.secondary,
     fontWeight: 'bold',
     padding: 3,
     paddingHorizontal: 10,
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
   },
 });

@@ -204,7 +204,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
       </ImageBackground>
       <Text
         style={{
-          fontSize: responsiveFontSize(1.5),
+          fontSize: responsiveFontSize(1.7),
 
           fontWeight: 'bold',
           paddingHorizontal: 5,
@@ -237,7 +237,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
             style={{
               color: Colors.secondary,
               padding: 5,
-              fontSize: responsiveFontSize(1.6),
+              fontSize: responsiveFontSize(1.7),
 
               fontWeight: 'bold',
             }}>
@@ -319,7 +319,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
             </Text>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
               }}>
               NO RECORD YET
             </Text>
@@ -369,7 +369,6 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   padding: 5,
-                  paddingHorizontal: 0,
                 }}>
                 <Button
                   onPress={() => {
@@ -420,14 +419,14 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                     style={{
                       color: Colors.primary,
                       fontWeight: 'bold',
-                      fontSize: responsiveFontSize(1.5),
+                      fontSize: responsiveFontSize(1.7),
                     }}>
                     DATE
                   </Label>
                   <Input
                     style={{
                       color: Colors.primary,
-                      fontSize: responsiveFontSize(1.5),
+                      fontSize: responsiveFontSize(1.7),
                     }}
                     keyboardType="number-pad"
                     placeholder="dd-mm-yy"
@@ -441,14 +440,14 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   style={{
                     color: Colors.primary,
                     fontWeight: 'bold',
-                    fontSize: responsiveFontSize(1.5),
+                    fontSize: responsiveFontSize(1.7),
                   }}>
                   WEIGHT
                 </Label>
                 <Input
                   style={{
                     color: Colors.primary,
-                    fontSize: responsiveFontSize(1.5),
+                    fontSize: responsiveFontSize(1.7),
                   }}
                   keyboardType="number-pad"
                   placeholder="00.00 kg"
@@ -532,7 +531,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(FitnessStatics);
 const styles = StyleSheet.create({
   statText: {
     color: Colors.secondary,
-    fontSize: responsiveFontSize(1.6),
+    fontSize: responsiveFontSize(1.7),
   },
   setButton: {
     borderColor: Colors.primary,

@@ -104,7 +104,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
             }}>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
                 fontWeight: 'bold',
                 paddingHorizontal: 10,
                 textAlign: 'center',
@@ -162,7 +162,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               }}>
               <Text
                 style={{
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
                   padding: 5,
                   fontWeight: 'bold',
                   textAlignVertical: 'center',
@@ -173,7 +173,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
               {todaysRoutine.exerciseData && (
                 <Text
                   style={{
-                    fontSize: responsiveFontSize(1.5),
+                    fontSize: responsiveFontSize(1.7),
                     padding: 5,
                     fontWeight: 'bold',
                     textAlignVertical: 'center',
@@ -208,7 +208,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
           style={{
             textAlign: 'center',
             color: Colors.secondary,
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
           }}>
           {title}
         </Text>
@@ -260,7 +260,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -307,7 +307,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 </Text>
                 <Text
                   style={{
-                    fontSize: responsiveFontSize(1.5),
+                    fontSize: responsiveFontSize(1.7),
                     fontWeight: 'bold',
                     paddingHorizontal: 10,
                     textAlign: 'center',
@@ -328,7 +328,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
         }}>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 4,
@@ -358,7 +358,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       </View>
       <Text
         style={{
-          fontSize: responsiveFontSize(1.5),
+          fontSize: responsiveFontSize(1.7),
           fontWeight: 'bold',
           paddingHorizontal: 5,
           paddingVertical: 5,
@@ -400,7 +400,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
                 }}>
                 BEGINNER
               </Text>
@@ -436,7 +436,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
                 }}>
                 INTERMEDIATE
               </Text>
@@ -472,7 +472,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
                 style={{
                   fontWeight: 'bold',
                   color: Colors.secondary,
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
                 }}>
                 ADVANCED
               </Text>
@@ -483,7 +483,7 @@ const HomeScreen = ({navigation, listState, route, publicState}) => {
       <View>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingHorizontal: 5,
             paddingVertical: 5,

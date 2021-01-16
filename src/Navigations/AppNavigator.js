@@ -160,7 +160,7 @@ const TopTabsNavigator = () => {
         },
         labelStyle: {
           fontWeight: 'bold',
-          fontSize: responsiveFontSize(1.5),
+          fontSize: responsiveFontSize(1.7),
         },
         indicatorStyle: {
           backgroundColor: Colors.primary,

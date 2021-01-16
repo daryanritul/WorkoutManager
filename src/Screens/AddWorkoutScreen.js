@@ -106,7 +106,7 @@ const AddWorkoutScreen = ({navigation, addWorkout}) => {
       </ImageBackground>
       <Text
         style={{
-          fontSize: responsiveFontSize(1.5),
+          fontSize: responsiveFontSize(1.7),
           fontWeight: 'bold',
           padding: 5,
           color: Colors.primary,
@@ -203,6 +203,6 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     color: Colors.primary,
-    fontSize: responsiveFontSize(1.6),
+    fontSize: responsiveFontSize(1.7),
   },
 });

@@ -62,7 +62,7 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             }}>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
 
                 color: '#fff',
               }}>
@@ -70,7 +70,7 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             </Text>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
 
                 color: '#fff',
               }}>
@@ -88,7 +88,7 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
             }}>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
 
                 color: '#fff',
               }}>
@@ -102,8 +102,8 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
           }}>
           <Text
             style={{
-              height: '30%',
-              fontSize: responsiveFontSize(1.5),
+              height: '34%',
+              fontSize: responsiveFontSize(1.7),
 
               paddingHorizontal: 5,
               paddingVertical: 2,
@@ -117,7 +117,7 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
               name={data.routineStatus ? 'cafe' : 'cafe-outline'}
               style={{
                 fontSize: responsiveFontSize(5),
-                height: '53%',
+                height: '49%',
                 textAlign: 'center',
                 paddingVertical: 10,
                 color: data.routineStatus ? '#29B966' : '#F2F2F2',
@@ -128,7 +128,7 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
               name={'checkmark-circle'}
               style={{
                 fontSize: responsiveFontSize(5),
-                height: '53%',
+                height: '49%',
                 textAlign: 'center',
                 textAlignVertical: 'center',
 
@@ -141,7 +141,7 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
               note
               style={{
                 height: '17%',
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
 
                 textAlignVertical: 'center',
                 textAlign: 'center',

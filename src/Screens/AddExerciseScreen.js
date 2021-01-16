@@ -89,21 +89,21 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
           }}>
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}>
             Sets : {sets}
           </Text>
 
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}>
             Rest : {rest} Sec
           </Text>
         </View>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
           }}>
           Reps : {reps}
         </Text>
@@ -192,7 +192,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
         <Item inlineLabel last>
           <Label
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
             }}>
             Day Title :
@@ -201,7 +201,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
             placeholder="E.g., (Chest & Triceps, Shoulder,Back)"
             placeholderTextColor={'#c1c1c1'}
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}
             value={name}
             onChangeText={(text) => setName(text)}
@@ -223,7 +223,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
       <Text
         note
         style={{
-          fontSize: responsiveFontSize(1.5),
+          fontSize: responsiveFontSize(1.7),
           textAlign: 'center',
         }}>
         (Long Press to Delete Exercise from list)
@@ -258,7 +258,7 @@ const AddExerciseScreen = ({navigation, route, addRoutine}) => {
             <Text
               note
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
               }}>
               (Add new exercise to list)
             </Text>
@@ -515,7 +515,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     padding: 10,
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
 
     color: '#454545',
   },
@@ -542,6 +542,6 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     color: Colors.primary,
-    fontSize: responsiveFontSize(1.6),
+    fontSize: responsiveFontSize(1.7),
   },
 });

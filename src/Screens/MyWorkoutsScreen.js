@@ -50,7 +50,7 @@ const WeightsScreen = ({navigation, route, listState}) => {
             <Text
               note
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
               }}>
               (Explore or Create your own workouts)
             </Text>

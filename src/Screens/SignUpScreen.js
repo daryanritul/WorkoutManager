@@ -265,12 +265,12 @@ const styles = StyleSheet.create({
   labelStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
   },
   inputStyle: {
     color: Colors.primary,
     fontWeight: 'bold',
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
   },
   genderBox: {
     backgroundColor: 'rgba(255,255,255,0.7)',

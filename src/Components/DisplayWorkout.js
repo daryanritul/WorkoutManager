@@ -46,7 +46,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
           }}>
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
               color: Colors.secondary,
               fontWeight: 'bold',
             }}>
@@ -56,7 +56,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
             style={{
               color: Colors.secondary,
               fontWeight: 'bold',
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}>
             {itemData.item.target}
           </Text>
@@ -64,14 +64,14 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
             style={{
               color: Colors.secondary,
               fontWeight: 'bold',
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
             }}>
             {itemData.item.type}
           </Text>
           <Text
             style={{
               color: Colors.secondary,
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
             }}>
             {itemData.item.workoutData ? itemData.item.workoutData.length : '0'}{' '}
@@ -136,7 +136,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
             }}>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
                 color: Colors.secondary,
                 fontWeight: 'bold',
               }}>
@@ -150,7 +150,7 @@ const DisplayWorkout = ({itemData, navigation, removeWorkout, routeName}) => {
               style={{
                 color: Colors.secondary,
                 fontWeight: 'bold',
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
               }}>
               {`${
                 itemData.item.workoutData.length -

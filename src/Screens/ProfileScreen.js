@@ -38,7 +38,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
           width: '40%',
           textAlign: 'center',
           padding: 10,
-          fontSize: responsiveFontSize(1.6),
+          fontSize: responsiveFontSize(1.7),
           fontWeight: 'bold',
         }}>
         {keys}
@@ -47,7 +47,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
         style={{
           textAlign: 'center',
           padding: 10,
-          fontSize: responsiveFontSize(1.6),
+          fontSize: responsiveFontSize(1.7),
 
           fontWeight: 'bold',
         }}>
@@ -56,7 +56,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
       {!mode ? (
         <Text
           style={{
-            fontSize: responsiveFontSize(1.6),
+            fontSize: responsiveFontSize(1.7),
 
             width: '60%',
             padding: 10,
@@ -79,7 +79,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
               onValueChange={(value) => setValue(value)}
               style={{
                 width: 200,
-                fontSize: responsiveFontSize(1.6),
+                fontSize: responsiveFontSize(1.7),
               }}>
               <Picker.Item label="Beginner" value="Beginner" />
               <Picker.Item label="Intermediate" value="Intermediate" />
@@ -92,7 +92,7 @@ const ProfileListCard = ({keys, value, mode, setValue}) => {
               onChangeText={(text) => setValue(text)}
               keyboardType="number-pad"
               style={{
-                fontSize: responsiveFontSize(1.6),
+                fontSize: responsiveFontSize(1.7),
 
                 padding: 5,
                 textAlign: 'left',
@@ -209,7 +209,7 @@ const ProfileScreen = ({
           }}>
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 10,
               paddingVertical: 10,

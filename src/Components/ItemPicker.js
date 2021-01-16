@@ -25,7 +25,7 @@ const ItemPicker = ({placeHolder, data, selectedValue, setSelectedValue}) => {
       <Text
         style={{
           width: '50%',
-          fontSize: responsiveFontSize(1.6),
+          fontSize: responsiveFontSize(1.7),
           color: '#454545',
         }}>
         {placeHolder}
@@ -39,7 +39,7 @@ const ItemPicker = ({placeHolder, data, selectedValue, setSelectedValue}) => {
         selectedValue={selectedValue}
         itemStyle={{}}
         textStyle={{
-          fontSize: responsiveFontSize(1.6),
+          fontSize: responsiveFontSize(1.7),
         }}
         onValueChange={(value) => {
           setSelectedValue(value);

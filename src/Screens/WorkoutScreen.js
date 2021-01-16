@@ -156,7 +156,7 @@ const WorkoutScreen = ({
               }}>
               <Text
                 style={{
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
                   color: Colors.secondary,
                   fontWeight: 'bold',
                 }}>
@@ -166,7 +166,7 @@ const WorkoutScreen = ({
                 style={{
                   color: Colors.secondary,
                   fontWeight: 'bold',
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
                 }}>
                 {dataState.workoutData.length ===
                 dataState.workoutStatus.routineTracker
@@ -179,7 +179,7 @@ const WorkoutScreen = ({
               <Text
                 style={{
                   color: Colors.secondary,
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
                   fontWeight: 'bold',
                 }}>
                 100%
@@ -211,7 +211,7 @@ const WorkoutScreen = ({
         }}>
         <Text
           style={{
-            fontSize: responsiveFontSize(1.5),
+            fontSize: responsiveFontSize(1.7),
             fontWeight: 'bold',
             paddingVertical: 8,
             paddingHorizontal: 10,
@@ -222,7 +222,7 @@ const WorkoutScreen = ({
         {(routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen') && (
           <Text
             style={{
-              fontSize: responsiveFontSize(1.5),
+              fontSize: responsiveFontSize(1.7),
               fontWeight: 'bold',
               paddingHorizontal: 10,
               paddingVertical: 8,
@@ -269,7 +269,7 @@ const WorkoutScreen = ({
             <Text
               note
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
               }}>
               Add Rest/Working Days To This Workout
             </Text>
@@ -305,7 +305,7 @@ const WorkoutScreen = ({
                 <Text
                   style={{
                     fontWeight: 'bold',
-                    fontSize: responsiveFontSize(1.5),
+                    fontSize: responsiveFontSize(1.7),
                   }}>
                   Add Rest Day
                 </Text>
@@ -325,7 +325,7 @@ const WorkoutScreen = ({
                 <Text
                   style={{
                     fontWeight: 'bold',
-                    fontSize: responsiveFontSize(1.5),
+                    fontSize: responsiveFontSize(1.7),
                   }}>
                   Add Workout Day
                 </Text>
@@ -423,7 +423,7 @@ const WorkoutScreen = ({
             }}>
             <Text
               style={{
-                fontSize: responsiveFontSize(1.5),
+                fontSize: responsiveFontSize(1.7),
                 fontWeight: 'bold',
                 paddingHorizontal: 15,
                 textAlign: 'center',
@@ -475,7 +475,7 @@ const WorkoutScreen = ({
               }}>
               <Text
                 style={{
-                  fontSize: responsiveFontSize(1.5),
+                  fontSize: responsiveFontSize(1.7),
 
                   paddingHorizontal: 15,
                   paddingVertical: 8,
@@ -538,13 +538,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondary,
   },
   radioButton: {
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
 
     color: Colors.primary,
   },
   modalBtnText: {
     color: Colors.secondary,
-    fontSize: responsiveFontSize(1.5),
+    fontSize: responsiveFontSize(1.7),
   },
   modalButton: {
     backgroundColor: Colors.primary,

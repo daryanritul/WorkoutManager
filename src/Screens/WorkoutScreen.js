@@ -59,7 +59,7 @@ const WorkoutScreen = ({
       : data;
   const toggleSwitch = () => repetitionStatus(dataState.id);
   useLayoutEffect(() => {
-    if (routeName === 'MyWorkoutsScreen')
+    if (routeName === 'MyWorkoutsScreen' || routeName === 'HomeScreen')
       navigation.setOptions({
         headerRight: () => (
           <TouchableOpacity

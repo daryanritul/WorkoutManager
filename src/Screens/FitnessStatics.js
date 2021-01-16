@@ -369,7 +369,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   padding: 5,
-                  paddingHorizontal: 10,
+                  paddingHorizontal: 0,
                 }}>
                 <Button
                   onPress={() => {
@@ -460,13 +460,15 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
               <View
                 style={{
                   flexDirection: 'row',
+                  marginVertical: 5,
                   justifyContent: 'space-between',
                 }}>
                 <Button
                   block
                   style={{
+                    height: responsiveHeight(5),
                     backgroundColor: Colors.primary,
-                    width: '48%',
+                    width: responsiveWidth(30),
                   }}
                   onPress={() => {
                     if (weight) {
@@ -479,7 +481,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   <Text
                     style={{
                       fontWeight: 'bold',
-                      fontSize: responsiveFontSize(2),
+                      fontSize: responsiveFontSize(1.8),
 
                       color: Colors.secondary,
                     }}>
@@ -490,7 +492,8 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   block
                   style={{
                     backgroundColor: Colors.primary,
-                    width: '48%',
+                    width: responsiveWidth(30),
+                    height: responsiveHeight(5),
                   }}
                   onPress={() => {
                     setModal(false);
@@ -500,7 +503,7 @@ const FitnessStatics = ({updateUserData, userState, navigation}) => {
                   <Text
                     style={{
                       fontWeight: 'bold',
-                      fontSize: responsiveFontSize(2),
+                      fontSize: responsiveFontSize(1.8),
 
                       color: Colors.secondary,
                     }}>

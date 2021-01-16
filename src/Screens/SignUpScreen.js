@@ -60,9 +60,8 @@ const SignUpScreen = ({signUpUser}) => {
         <View
           style={{
             flex: 2,
-            margin: 10,
+            margin: responsiveWidth(8),
             justifyContent: 'center',
-            padding: 20,
           }}>
           <Form>
             {next === 0 && (
@@ -277,7 +276,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.7)',
     height: responsiveHeight(8),
 
-    width: responsiveWidth(38),
+    width: '45%',
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: Colors.primary,

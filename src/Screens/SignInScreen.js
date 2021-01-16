@@ -38,35 +38,30 @@ const SignInScreen = ({signInUser}) => {
             style={{
               flex: 4,
               justifyContent: 'center',
+              margin: responsiveWidth(8),
             }}>
-            <View
-              style={{
-                margin: 20,
-                padding: 20,
-              }}>
-              <Form>
-                <Item stackedLabel last style={styles.itemStyle}>
-                  <Label style={styles.labelStyle}>Email Address</Label>
-                  <Input
-                    style={styles.inputStyle}
-                    placeholder="user@example.com"
-                    value={email}
-                    autoCapitalize="none"
-                    keyboardType="email-address"
-                    onChangeText={(text) => setEmail(text)}
-                  />
-                </Item>
-                <Item stackedLabel last style={styles.itemStyle}>
-                  <Label style={styles.labelStyle}>Password</Label>
-                  <Input
-                    style={styles.inputStyle}
-                    secureTextEntry={true}
-                    value={password}
-                    onChangeText={(text) => setPassword(text)}
-                  />
-                </Item>
-              </Form>
-            </View>
+            <Form>
+              <Item stackedLabel last style={styles.itemStyle}>
+                <Label style={styles.labelStyle}>Email Address</Label>
+                <Input
+                  style={styles.inputStyle}
+                  placeholder="user@example.com"
+                  value={email}
+                  autoCapitalize="none"
+                  keyboardType="email-address"
+                  onChangeText={(text) => setEmail(text)}
+                />
+              </Item>
+              <Item stackedLabel last style={styles.itemStyle}>
+                <Label style={styles.labelStyle}>Password</Label>
+                <Input
+                  style={styles.inputStyle}
+                  secureTextEntry={true}
+                  value={password}
+                  onChangeText={(text) => setPassword(text)}
+                />
+              </Item>
+            </Form>
           </View>
           <View style={{flex: 2}}>
             <View

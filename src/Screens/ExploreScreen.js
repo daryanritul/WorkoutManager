@@ -312,25 +312,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(ExploreScreen);
-
-const styles = StyleSheet.create({
-  bodyText: {
-    color: Colors.secondary,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 5,
-    fontSize: 20,
-  },
-  bodyHead: {
-    color: Colors.secondary,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 5,
-    fontSize: 15,
-  },
-  bodyFoot: {
-    color: Colors.secondary,
-    fontWeight: 'bold',
-    padding: 5,
-  },
-});

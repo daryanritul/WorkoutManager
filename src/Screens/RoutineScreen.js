@@ -216,7 +216,7 @@ const RoutineScreen = ({
             name="cafe"
             style={{
               textAlign: 'center',
-              fontSize: 70,
+              fontSize: responsiveFontSize(10),
               color: '#29B966',
             }}
           />

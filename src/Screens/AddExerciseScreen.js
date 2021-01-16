@@ -505,13 +505,6 @@ AddExerciseScreen.propTypes = {
 export default connect(null, mapDispatchToProps)(AddExerciseScreen);
 
 const styles = StyleSheet.create({
-  groupText: {
-    textAlign: 'center',
-    color: Colors.primary,
-    fontWeight: 'bold',
-    fontSize: 18,
-    padding: 5,
-  },
   itemView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -545,7 +538,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   setText: {
-    fontSize: 12,
     fontSize: responsiveFontSize(1.2),
   },
   inputStyle: {

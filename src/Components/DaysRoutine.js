@@ -156,13 +156,3 @@ const DaysRoutine = ({day, routineHandler, data, disable, daysType}) => {
 };
 
 export default DaysRoutine;
-
-const styles = StyleSheet.create({
-  weekText: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 5,
-    color: Colors.primary,
-  },
-});

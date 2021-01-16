@@ -533,12 +533,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.secondary,
   },
-  headText: {
-    fontSize: 16,
-    color: '#454545',
-    fontWeight: 'bold',
-    paddingHorizontal: 5,
-  },
   radioButton: {
     fontSize: responsiveFontSize(1.5),
 
